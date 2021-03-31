@@ -1,0 +1,324 @@
+<?php
+//--------------CLASS_okalis------------------//
+	require("../../../OKALIS/class_OKALIS_v1.php");
+	define("DEBUG", false);
+	$O=new OKALIS();
+	$O->setDisplayErrors(true);
+	$O->DEBUG=DEBUG;
+	$O->ruta_conexion="../../../../funciones/";
+	$O->clave_del_archivo=md5("deudores_mensualidad_v1");
+	$O->PERMITIR_ACCESO_USUARIO();
+//--------------FIN CLASS_okalis---------------//
+if($_POST)
+{
+	if(DEBUG){ var_dump($_POST);}
+require('../../../libreria_publica/fpdf/fpdf.php');
+class PDF extends FPDF
+{
+var $B;
+var $I;
+var $U;
+var $HREF;
+
+function PDF($orientation='P',$unit='mm',$format='Letter')
+{
+    //Llama al constructor de la clase padre
+    $this->FPDF($orientation,$unit,$format);
+    //Iniciación de variables
+    $this->B=0;
+    $this->I=0;
+    $this->U=0;
+    $this->HREF='';
+}
+
+function WriteHTML($html)
+{
+    //Intérprete de HTML
+    $html=str_replace("\n",' ',$html);
+    $a=preg_split('/<(.*)>/U',$html,-1,PREG_SPLIT_DELIM_CAPTURE);
+    foreach($a as $i=>$e)
+    {
+        if($i%2==0)
+        {
+            //Text
+            if($this->HREF)
+                $this->PutLink($this->HREF,$e);
+            else
+                $this->Write(5,$e);
+        }
+        else
+        {
+            //Etiqueta
+            if($e[0]=='/')
+                $this->CloseTag(strtoupper(substr($e,1)));
+            else
+            {
+                //Extraer atributos
+                $a2=explode(' ',$e);
+                $tag=strtoupper(array_shift($a2));
+                $attr=array();
+                foreach($a2 as $v)
+                {
+                    if(preg_match('/([^=]*)=["\']?([^"\']*)/',$v,$a3))
+                        $attr[strtoupper($a3[1])]=$a3[2];
+                }
+                $this->OpenTag($tag,$attr);
+            }
+        }
+    }
+}
+
+function OpenTag($tag,$attr)
+{
+    //Etiqueta de apertura
+    if($tag=='B' || $tag=='I' || $tag=='U')
+        $this->SetStyle($tag,true);
+    if($tag=='A')
+        $this->HREF=$attr['HREF'];
+    if($tag=='BR')
+        $this->Ln(5);
+}
+
+function CloseTag($tag)
+{
+    //Etiqueta de cierre
+    if($tag=='B' || $tag=='I' || $tag=='U')
+        $this->SetStyle($tag,false);
+    if($tag=='A')
+        $this->HREF='';
+}
+
+function SetStyle($tag,$enable)
+{
+    //Modificar estilo y escoger la fuente correspondiente
+    $this->$tag+=($enable ? 1 : -1);
+    $style='';
+    foreach(array('B','I','U') as $s)
+    {
+        if($this->$s>0)
+            $style.=$s;
+    }
+    $this->SetFont('',$style);
+}
+
+function PutLink($URL,$txt)
+{
+    //Escribir un hiper-enlace
+    $this->SetTextColor(0,0,255);
+    $this->SetStyle('U',true);
+    $this->Write(5,$txt,$URL);
+    $this->SetStyle('U',false);
+    $this->SetTextColor(0);
+}
+}
+	require("../../../../funciones/conexion_v2.php");
+	require("../../../../funciones/funciones_sistema.php");
+	require("../../../../funciones/class_LISTADOR_ALUMNOS.php");
+	require("../../../../funciones/VX.php");
+
+	
+	$sede=$_POST["sede"];
+	$id_carrera=$_POST["id_carrera"];
+	$nivel=$_POST["nivel"];
+	$jornada=$_POST["jornada"];
+	$grupo=$_POST["grupo"];
+	$fecha_corte=$_POST["fecha_corte"];
+	$yearIngresoCarrera=$_POST["yearIngresoCarrera"];
+	$year_cuotas=$_POST["year_cuotas"];
+	$opcion=$_POST["opcion"];
+	
+	$mesActual=date("m");
+	$yearActual=date("Y");
+	
+	$semestreActual=1;
+	if($mesActual>=8){$semestreActual=2;}
+
+	
+	$dias_plazo=$_POST["dias_plazo"];
+	
+	$fecha_limite=date("Y-m-d", strtotime("$fecha_corte +$dias_plazo days"));///fecha limite =fecha corte +15 dias
+	$year_cuotas=$_POST["year_cuotas"];
+	/////////////
+	$fecha_actual=date("Y-m-d");
+	
+	
+	
+	if($year_cuotas!="0")
+	{ $condicion_year_cuota="AND letras.ano='$year_cuotas'";}
+	else{ $condicion_year_cuota="";}
+	
+	
+
+		$mes_actual=abs(date("m"));
+		$mes_actual_label=$mes_actual;
+		$fecha=date("d")." de ".$mes_actual_label." del ".date("Y");
+		$DIRECCION["Talca"]="3 Sur #1068";
+		$DIRECCION["Linares"]="O'Higgins #313";
+		$pdf=new PDF();
+		$autor="ACX";
+		$titulo='Boletin Informativo';
+		$zoom=50;
+		$pdf->SetAuthor($autor);
+		$pdf->SetTitle($titulo);
+		$pdf->SetDisplayMode($zoom);
+		
+		$LISTA = new LISTADOR_ALUMNOS();
+	
+		$LISTA->setDebug(DEBUG);
+		
+		$LISTA->setGrupo($grupo);
+		$LISTA->setId_carrera($id_carrera);
+		$LISTA->setJornada($jornada);
+		$LISTA->setNiveles($nivel);
+		$LISTA->setSede($sede);
+		$LISTA->setYearIngressoCarrera($yearIngresoCarrera);
+		$LISTA->setSituacionAcademica("A");
+		
+		$LISTA->setSemestreVigencia($semestreActual);
+		$LISTA->setYearVigencia($yearActual);
+	
+	
+		if(DEBUG){echo "Total Alumnos ".$LISTA->getTotalAlumno()."<br>";}
+		$totalAlumnos=$LISTA->getTotalAlumno();
+		
+		if($totalAlumnos>0)
+		{
+			$cuenta_alumno=0;
+			
+			foreach($LISTA->getListaAlumnos() as $n => $auxAlumno)
+			{
+				
+				$id_alumno=$auxAlumno->getIdAlumno();
+				$rut_alumno=$auxAlumno->getRut();
+				$nombre=$auxAlumno->getNombre();
+				$apellidos=$auxAlumno->getApellido_P()." ".$auxAlumno->getApellido_M();
+				$emailAlumno=$auxAlumno->getEmail();
+				$direccion=$auxAlumno->getDireccion();
+				$ciudad=$auxAlumno->getCiudad();
+				
+				
+				$id_carrera_alumno=$auxAlumno->getIdCarreraPeriodo();
+				$nivel_alumno=$auxAlumno->getNivelAlumnoPeriodo();
+				$jornada_alumno=$auxAlumno->getJornadaPeriodo();
+				$situacion_alumno=$auxAlumno->getSituacionAlumnoPeriodo();
+			
+			//////------------------------/INICIO PDF/------------------//////////
+			$html_inicial=utf8_decode('Sr(ita) <b>'.$nombre.' '.$apellidos.'</b><br>'.$direccion.'<br>'.$ciudad.'<br>');
+			$html_texto_1=utf8_decode('De nuestra Consideracion:');
+			$html_texto_1b=utf8_encode('La presente tiene como objetivo comunicar a usted, que tiene mensualidades vencidas que se detallaran a continuacion:');
+			$html_final=utf8_decode('Debido a esto, solicitamos pasar a la oficina de Administracion y Finanzas a cancelar dentro de las proximas 24 horas, en nuestra Casa de Estudios ubicada en '.$sede.', calle '.$DIRECCION[$sede].', de lo contrario  será inevitable la cobranza externa prejudicial y la remisión de la morosidad al Boletin de Informes Comerciales (DICOM). Asi mismo recordamos que la deuda mencionada esta sujeta a cobro de intereses y gastos de cobranza, los que seran calculados al momento de su cancelacion.');
+			//Primera página
+			
+			
+					$cons_cuotas="SELECT * FROM letras WHERE idalumn='$id_alumno' AND fechavenc<='$fecha_corte' AND anulada='N' AND pagada <>'S' $condicion_year_cuota ORDER by id";
+					
+					
+					
+					
+					$sql_cuotas=$conexion_mysqli->query($cons_cuotas)or die($conexion_mysqli->error);
+					$num_cuotas=$sql_cuotas->num_rows;
+					
+					if(DEBUG){ echo"cuotas-> $cons_cuotas<br>numero de cuotas: $num_cuotas<br>";}
+					
+					if(empty($num_cuotas)){ $num_cuotas=0;}
+					
+					if($num_cuotas>0){$mostrar_alumno=true; if(DEBUG){ echo"Mostrar Alumno:Si<br>";}}
+					else{ $mostrar_alumno=false; if(DEBUG){ echo"Mostrar Alumno:No<br>";}}
+					
+					if($mostrar_alumno)
+					{
+						$pdf->AddPage();
+						$pdf->SetFont('Arial','',12);
+						$pdf->Cell(160,6,"",0,0,"C");
+						$logo='../../../BAses/Images/logo_cft.jpg';
+						$pdf->image($logo,14,14,30,24,'jpg'); //este es el logo
+						$pdf->SetY(50);
+						$pdf->SetLeftMargin(30);
+						$pdf->WriteHTML($html_inicial);
+						$Y_actual=$pdf->GetY();
+						$pdf->SetY($Y_actual+30);
+						$pdf->WriteHTML($html_texto_1);
+						$Y_actual=$pdf->GetY();
+						$pdf->SetY($Y_actual+10);
+						$pdf->MultiCell(160,6,"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t".$html_texto_1b,0,1);
+						
+						////////////tabla_cuota///////////////
+							$pdf->Ln();
+							$pdf->Cell(160,6,"Resumen - Cuotas",1,1,"C");
+							$pdf->Cell(40,6,"N",1,0,"C");
+							$pdf->Cell(40,6,"Vencimiento",1,0,"C");
+							$pdf->Cell(40,6,"Condicion",1,0,"C");
+							$pdf->Cell(40,6,"Monto",1,1,"C");
+						if($num_cuotas>0)
+						{
+							
+							$contador=0;
+							$suma_deuda=0;
+							while($C=$sql_cuotas->fetch_assoc())
+							{
+								$contador++;
+								
+								$id_cuota=$C["id"];
+								$deudaXcuota=$C["deudaXletra"];
+								$suma_deuda+=$deudaXcuota;
+								$condicion=$C["pagada"];
+								switch($condicion)
+								{
+									case"N":
+										$condicion_label="pendiente";
+										break;
+									case"S":
+										$condicion_label="pagada";	
+										break;
+									case"A":
+										$condicion_label="saldo";	
+										break;
+								}
+								$fecha_vencimiento=$C["fechavenc"];
+								$fecha_ultimo_pago=$C["fecha_ultimo_pago"];
+								
+									$pdf->Cell(40,6,$contador,1,0,"C");
+									$pdf->Cell(40,6,date("d-m-Y", strtotime($fecha_vencimiento)),1,0,"C");
+									$pdf->Cell(40,6,$condicion_label,1,0,"C");
+									$pdf->Cell(40,6,"$".number_format($deudaXcuota,0,",","."),1,1,"C");
+								
+							}
+							//pie de tabla
+							$pdf->Cell(40,6,"Total Adeudado",1,0,"C");
+							$pdf->Cell(120,6,"$".number_format($suma_deuda,0,",","."),1,1,"R");
+						}
+						else
+						{ $pdf->Cell(160,6,"Sin Cuotas Morosas",1,0,"C");}
+						
+						/////////////Fin TABLA///////////
+						$pdf->Ln();
+						$pdf->MultiCell(160,6,"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t".$html_final,0,1);
+						
+						//$pdf->Cell(190,6,"Y.: $Y_actual",0,1,"C");
+						
+						//$pdf->SetY(200);
+						$pdf->Cell(160,6,"Atentamente,",0,1,"C");
+						$Y_actual=$pdf->GetY();
+						$pdf->SetY($Y_actual+15);
+						$pdf->Cell(160,6,"Depto de Admin y Finanzas",0,1,"R");
+						$pdf->Cell(160,6,$sede.", ".$fecha,0,1,"L");
+					}
+			
+			$sql_cuotas->free();
+			
+			//////------------------------/FIN PDF/------------------//////////
+		}//fin while
+		$conexion_mysqli->close();
+		$pdf->Output();
+	}
+	else
+	{
+		echo $num_reg.' Alumnos En Condicion De Moroso...<br>';
+	}
+
+}
+else
+{
+	echo"Sin Datos Para Generar";
+}
+?>

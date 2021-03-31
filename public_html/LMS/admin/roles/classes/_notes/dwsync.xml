@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="admins_existing_selector.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="admins_potential_selector.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="allow_assign_page.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="allow_override_page.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="allow_role_page.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="allow_switch_page.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="assign_user_selector_base.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="capability_table_base.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="capability_table_with_risks.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="check_capability_table.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="check_users_selector.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="define_role_table_advanced.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="define_role_table_basic.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="existing_role_holders.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="override_permissions_table_advanced.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="permission_allow_form.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="permission_prohibit_form.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="permissions_table.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="potential_assignees_below_course.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="potential_assignees_course_and_above.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="preset.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="preset_form.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="view_role_definition_table.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+</dwsync>

@@ -1,0 +1,6 @@
+foreach($_POST as $n => $valor)
+	{
+		echo'$'.$n.'=$_POST["'.$n.'"];'."<br>";
+	}
+	
+	

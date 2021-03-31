@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="antiviruses.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="auth.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="auth_config.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="blocks.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="category.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="courseformats.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="cron.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="dataformats.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="editors.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="enrol.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="environment.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="environment.xml" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="filters.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="index.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="lib.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="licenses.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="localplugins.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="mailout-debugger.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="message.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="modules.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="oauth2callback.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="phpinfo.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="plagiarism.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="plugins.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="portfolio.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="process_email.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="purgecaches.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="qbehaviours.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="qtypes.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="renderer.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="reports.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="repository.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="repositoryinstance.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="resetemoticons.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="search.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="settings.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="thirdpartylibs.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="timezone.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+</dwsync>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="action_selector.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="comment_area.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competencies_move_tree.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competencies_tree.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competencies_tree_root.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_grader.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_path.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_picker.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_picker_competencyform.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_picker_user_plans.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_plan_navigation.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_rule_config.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_rule_points.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_summary.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="course_competencies_page.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="course_competency_settings.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="course_competency_statistics.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="evidence_summary.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="form-cohort-selector-suggestion.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="form-user-selector-suggestion.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="linked_courses_summary.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="loading.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="manage_competencies_page.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="manage_competency_frameworks_page.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="manage_templates_page.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="no_frameworks_warning.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="plan_page.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="plans_page.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="progress_bar.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="related_competencies.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="scale_configuration_page.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="template_competencies_page.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="template_statistics.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_competency_course_navigation.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_competency_summary.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_competency_summary_in_course.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_competency_summary_in_plan.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_evidence_list_page.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_evidence_page.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_summary.mustache" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+</dwsync>

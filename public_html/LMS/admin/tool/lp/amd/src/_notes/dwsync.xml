@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="actionselector.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competencies.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_outcomes.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_plan_navigation.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_rule.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_rule_all.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competency_rule_points.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competencyactions.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competencydialogue.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competencypicker.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competencypicker_user_plans.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competencyruleconfig.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="competencytree.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="course_competency_settings.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="dialogue.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="dragdrop-reorder.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="event_base.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="evidence_delete.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="form-cohort-selector.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="form-user-selector.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="frameworkactions.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="frameworks_datasource.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="grade_dialogue.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="grade_user_competency_inline.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="menubar.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="parentcompetency_form.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="planactions.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="scaleconfig.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="scalevalues.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="templateactions.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="tree.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_competency_course_navigation.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_competency_info.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_competency_plan_popup.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_competency_workflow.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="user_evidence_actions.js" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+</dwsync>

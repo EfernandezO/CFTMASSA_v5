@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="_zero_config.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aaSorting.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aaSortingFixed.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoColumns.bSearchable.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoColumns.bSortable.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoColumns.bUseRendered.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoColumns.bVisible.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoColumns.fnRender.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoColumns.iDataSort.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoColumns.sClass.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoColumns.sName.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoColumns.sTitle.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoColumns.sWidth.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="aoSearchCols.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="asStripClasses.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="bAutoWidth.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="bFilter.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="bInfo.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="bLengthChange.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="bPaginate.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="bProcessing.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="bServerSide.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="bSort.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="bSortClasses.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="fnDrawCallback.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="fnFooterCallback.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="fnHeaderCallback.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="fnInitComplete.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="fnRowCallback.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="iDisplayLength.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="oLanguage.oPaginate.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="oLanguage.sInfo.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="oLanguage.sInfoEmpty.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="oLanguage.sInfoPostFix.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="oLanguage.sLengthMenu.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="oLanguage.sProcessing.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="oLanguage.sSearch.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="oLanguage.sUrl.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="oLanguage.sZeroRecords.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="oSearch.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="sAjaxSource.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="sDom.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="sPaginationType.js" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+</dwsync>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="backup_mariaDB.sh" server="186.10.233.98" local="132312204000000000" remote="132312204000000000" />
+<file name="cron_autentificacion.php" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="cron_egresados_v1.sh" server="186.10.233.98" local="131351436000000000" remote="131351436000000000" />
+<file name="cron_envia_ftp.php" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="cron_nivel_academico_v1.sh" server="186.10.233.98" local="131352300000000000" remote="131352300000000000" />
+<file name="cron_revisa_egresados.php" server="186.10.233.98" local="131976972000000000" remote="131976972000000000" />
+<file name="cron_revisa_estado_financiero.php" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+<file name="cron_revisa_estado_financiero_v1.sh" server="186.10.233.98" local="131356620000000000" remote="131356620000000000" />
+<file name="cron_revisa_nivel_academico.php" server="186.10.233.98" local="131976972000000000" remote="131976972000000000" />
+<file name="prueba.txt" server="186.10.233.98" local="131810220000000000" remote="131810220000000000" />
+</dwsync>

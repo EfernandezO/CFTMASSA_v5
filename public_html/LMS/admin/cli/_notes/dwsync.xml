@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="alternative_component_cache.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="automated_backups.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="backup.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="check_database_schema.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="cron.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="fix_course_sequence.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="fix_deleted_users.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="fix_orphaned_question_categories.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="install.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="install_database.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="maintenance.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="mysql_collation.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="mysql_compressed_rows.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="mysql_engine.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="purge_caches.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="reset_password.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+<file name="upgrade.php" server="186.10.233.98" local="132288012000000000" remote="132288012000000000" />
+</dwsync>
