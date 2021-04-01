@@ -275,7 +275,7 @@ if((($_POST)and($_SESSION["SELECTOR_ALUMNO"]["ACTIVO"])and($acceso)))
 			}
 		}
 		
-		@mysql_close($conexion); 
+
 		$conexion_mysqli->close();
 		 
 		 
@@ -309,11 +309,12 @@ function VALIDA_NOTA($nota)
 
 function ES_ULTIMA_NOTA($id_alumno, $id_nota_hija, $id_nota_madre)
 {
+	require("../../funciones/conexion_v2.php");
 	$cons="SELECT MAX(id) FROM notas_hija WHERE id_alumno='$id_alumno' AND id_nota='$id_nota_madre'";
-	$sql=mysql_query($cons)or die("ULTIMA: ".mysql_error());
-	$DX=mysql_fetch_row($sql);
+	$sql=$conexion_mysqli->query($cons)or die("ULTIMA:");
+	$DX=$sql->fetch_row();
 	$max_id_nota_hija=$DX[0];
-	mysql_free_result($sql);
+	$sql->free();
 	if(empty($max_id_nota_hija)){ $max_id_nota_hija=0;}
 	if(DEBUG){echo"===><strong>FUNCION ES_ULTIMA_NOTA</strong><br>===>$cons <br>===>Comparar: MAX id hija: $max_id_nota_hija -> id nota hija actual: $id_nota_hija<br>";}
 	
@@ -321,7 +322,7 @@ function ES_ULTIMA_NOTA($id_alumno, $id_nota_hija, $id_nota_madre)
 	{ $respuesta=true; if(DEBUG){ echo"Nota hija es la ultima registrada<br>";}}
 	else
 	{ $respuesta=false; if(DEBUG){ echo"Nota hija NO es la ultima registrada<br>";}}
-	
+	$conexion_mysqli->close();
 	return($respuesta);
 }
 ?>

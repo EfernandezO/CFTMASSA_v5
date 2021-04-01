@@ -76,7 +76,6 @@ if($continuar and $continuar_2)
 	}
 	
 	$conexion_mysqli->close();
-	@mysql_close($conexion);
 }
 elseif($continuar and $continuar_3)
 {
@@ -104,7 +103,6 @@ elseif($continuar and $continuar_3)
 	}
 	
 	$conexion_mysqli->close();
-	@mysql_close($conexion);
 }
 else
 { }

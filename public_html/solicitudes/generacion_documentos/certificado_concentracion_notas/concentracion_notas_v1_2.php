@@ -96,7 +96,7 @@ if($continuar)
 				break;
 		}
 		
-	
+
 		///busco si ya se ha generado certificado y obtengo CODIGO GENERACION
 		$cons_c="SELECT COUNT(id) FROM registro_certificados WHERE id_solicitud='$id_solicitud'";
 	$sql_c=$conexion_mysqli->query($cons_c)or die($conexion_mysqli->error);
@@ -134,7 +134,7 @@ if($continuar)
 		$notaFinalAsignaturas=PROMEDIO_FINAL_ASIGNATURAS($id_alumno, $id_carrera, $yearIngreso);
 	
 	//-----------DATOS FIRMA------------------//
-		$cargo="Director Academico";
+		$cargo="Pedro Rosales Villarroel \n Director Academico";
 	//-----------------------------------------//
 	
 			////definicion de parametros
@@ -283,7 +283,7 @@ if($continuar)
 		$pdf->Text(10,271,"*Cod.".$CODIGO_GENERACION."*");
 		
 		 $pdf->SetXY(140,240);
-		 $pdf->Multicell(60,6,"C.F.T. Massachusetts",0,"C");
+		 $pdf->Multicell(60,6,$cargo,0,"C");
 	
 		
 		$Y_actual=$pdf->GetY();
@@ -429,7 +429,7 @@ if($continuar)
 		$pdf->Text(10,271,"*Cod.".$CODIGO_GENERACION."*");
 		
 		$pdf->SetXY(140,240);
-		$pdf->Multicell(60,6,"C.F.T. Massachusetts",0,"C");
+		$pdf->Multicell(60,6,$cargo,0,"C");
 
 		}
 		///-----------------------------------------------------------//
