@@ -1,15 +1,14 @@
 <?php
-//-----------------------------------------//
-	require("../../../OKALIS/seguridad.php");
-	require("../../../OKALIS/okalis.php");
-	$lista_invitados["privilegio"][]="admi_total";
-	//$lista_invitados["privilegio"][]="admi";
-	//$lista_invitados["privilegio"][]="Docente";
-	//$lista_invitados["privilegio"][]="jefe_carrera";
-	//$lista_invitados["privilegio"][]="matricula";
-	OKALIS($lista_invitados);
-	define("DEBUG",false);
-//-----------------------------------------//	
+//--------------CLASS_okalis------------------//
+require("../../OKALIS/class_OKALIS_v1.php");
+define("DEBUG", false);
+$O=new OKALIS();
+$O->DEBUG=DEBUG;
+$O->setDisplayErrors(false);
+$O->ruta_conexion="../../../funciones/";
+$O->clave_del_archivo=md5("Notas_parcialesV3->creacionManualEvaluaciones");
+$O->PERMITIR_ACCESO_USUARIO();
+//--------------FIN CLASS_okalis---------------//	
 
 if($_POST)
 {
@@ -81,14 +80,14 @@ if($_POST)
 	else
 	{
 		//fn_evaluaciones NO numerico
-		@mysql_close($conexion);
+	
 		$conexion_mysqli->close();
 		$url="";
 		if(DEBUG){ echo"URL: $url<br>";}
 		else{ header("location: $url");}
 	}	
 	$conexion_mysqli->close();
-	mysql_close($conexion);
+	
 	
 	/////Registro EVENTO///
 	include("../../../../funciones/VX.php");

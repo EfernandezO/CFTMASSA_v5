@@ -1,14 +1,14 @@
 <?php
-//-----------------------------------------//
-	require("../../../OKALIS/seguridad.php");
-	require("../../../OKALIS/okalis.php");
-	$lista_invitados["privilegio"][]="admi_total";
-	$lista_invitados["privilegio"][]="Docente";
-	$lista_invitados["privilegio"][]="jefe_carrera";
-	$lista_invitados["privilegio"][]="matricula";
-	OKALIS($lista_invitados);
-	define("DEBUG",false);
-//-----------------------------------------//	
+//--------------CLASS_okalis------------------//
+require("../../../OKALIS/class_OKALIS_v1.php");
+define("DEBUG", false);
+$O=new OKALIS();
+$O->DEBUG=DEBUG;
+$O->setDisplayErrors(false);
+$O->ruta_conexion="../../../../funciones/";
+$O->clave_del_archivo=md5("Notas_parcialesV3->verCalificador");
+$O->PERMITIR_ACCESO_USUARIO();
+//--------------FIN CLASS_okalis---------------//
 if($_GET)
 {
 	$sede=base64_decode($_GET["sede"]);
@@ -131,14 +131,14 @@ if($_GET)
 		
 		
 			$cons_A="SELECT toma_ramos.*, alumno.* FROM toma_ramos INNER JOIN alumno ON toma_ramos.id_alumno = alumno.id WHERE toma_ramos.id_carrera='$id_carrera' AND alumno.sede='$sede' AND toma_ramos.jornada='$jornada' AND alumno.grupo='$grupo_curso' AND toma_ramos.semestre='$semestre' AND toma_ramos.year='$year' AND toma_ramos.cod_asignatura='$cod_asignatura' AND toma_ramos.id_carrera='$id_carrera' ORDER by alumno.apellido_P, alumno.apellido_M";
-	$sql_A=mysql_query($cons_A)or die("Alumnos ".mysql_error());
-	$num_alumnos=mysql_num_rows($sql_A);
+	$sql_A=$conexion_mysqli->query($cons_A)or die("Alumnos ".$conexion_mysqli->error);
+	$num_alumnos=$sql_A->num_rows;
 	if(DEBUG){ echo"$cons_A<br>NUM alumnos: $num_alumnos<br>";}
 	
 	if($num_alumnos>0)
 	{
 		$cuenta_alumnos=0;
-		while($A=mysql_fetch_assoc($sql_A))
+		while($A=$sql_A->fetch_assoc())
 		{
 			$pdf->SetFont('Times','',12);
 			$cuenta_alumnos++;
@@ -229,11 +229,12 @@ if($_GET)
 			}
 				
 		}
+		$sql_A->free();
 	}
 	else
 	{ $pdf->Cell(15,7,"Sin Registros...",1,1,"C");}
 		
-		@mysql_close($conexion);
+	
 		$conexion_mysqli->close();
 		$pdf->Output();
 	

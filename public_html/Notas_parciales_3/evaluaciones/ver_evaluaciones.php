@@ -390,7 +390,7 @@ if($mostrar_boton)
 	
 	//utilizo jornada de la toma de ramos
 	
-		$cons_A="SELECT toma_ramos.*, alumno.id, alumno.rut, alumno.nombre, alumno.apellido_P, alumno.apellido_M FROM toma_ramos INNER JOIN alumno ON toma_ramos.id_alumno = alumno.id WHERE toma_ramos.id_carrera='$id_carrera' AND alumno.sede='$sede' AND toma_ramos.jornada='$jornada' AND alumno.grupo='$grupo_curso' AND toma_ramos.semestre='$semestre' AND toma_ramos.year='$year' AND toma_ramos.cod_asignatura='$cod_asignatura' ORDER by alumno.apellido_P, alumno.apellido_M";
+		$cons_A="SELECT toma_ramos.*, alumno.id, alumno.rut, alumno.nombre, alumno.apellido_P, alumno.apellido_M FROM toma_ramos INNER JOIN alumno ON toma_ramos.id_alumno = alumno.id WHERE toma_ramos.id_carrera='$id_carrera' AND alumno.sede='$sede' AND toma_ramos.jornada='$jornada' AND alumno.grupo='$grupo_curso' AND toma_ramos.semestre='$semestre' AND toma_ramos.year='$year' AND toma_ramos.cod_asignatura='$cod_asignatura' ORDER by alumno.apellido_P, alumno.apellido_M, nombre";
 		
 		
 	$sql_A=$conexion_mysqli->query($cons_A)or die($conexion_mysqli->error);

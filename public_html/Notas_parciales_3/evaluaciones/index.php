@@ -1,14 +1,14 @@
 <?php
-//-----------------------------------------//
-	require("../../OKALIS/seguridad.php");
-	require("../../OKALIS/okalis.php");
-	$lista_invitados["privilegio"][]="admi_total";
-	$lista_invitados["privilegio"][]="admi";
-	$lista_invitados["privilegio"][]="Docente";
-	$lista_invitados["privilegio"][]="jefe_carrera";
-	OKALIS($lista_invitados);
-	define("DEBUG",false);
-//-----------------------------------------//	
+//--------------CLASS_okalis------------------//
+require("../../OKALIS/class_OKALIS_v1.php");
+define("DEBUG", false);
+$O=new OKALIS();
+$O->DEBUG=DEBUG;
+$O->setDisplayErrors(false);
+$O->ruta_conexion="../../../funciones/";
+$O->clave_del_archivo=md5("Notas_parcialesV3->seleccionAsignatura");
+$O->PERMITIR_ACCESO_USUARIO();
+//--------------FIN CLASS_okalis---------------//	
 //////////////////////XAJAX/////////////////
 @require_once ("../../libreria_publica/xajax/xajax_core/xajax.inc.php");
 $xajax = new xajax("busca_asignaturas_server.php");
