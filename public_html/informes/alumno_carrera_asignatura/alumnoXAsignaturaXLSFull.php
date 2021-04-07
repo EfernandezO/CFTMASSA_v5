@@ -121,7 +121,7 @@ if($_GET)
 					<td>'.$Alumno->getRut().'</td>
 					<td>'.$Alumno->getNombre().'</td>
 					<td>'.$Alumno->getApellido_P().'</td>
-					<td>'.$Alumno->getApellido_P().'</td>
+					<td>'.$Alumno->getApellido_M().'</td>
 					<td>'.$Alumno->getEmailInstitucional().'</td>
 				</tr>';
 			}

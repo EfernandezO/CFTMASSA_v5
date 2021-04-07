@@ -194,13 +194,13 @@ if($continuar)
 {
 	   $cons="SELECT * FROM programa_estudio WHERE id_carrera='$id_carrera' AND cod_asignatura='$cod_asignatura' ORDER by numero_unidad, id_programa";
 	   if(DEBUG){ echo"-->$cons<br>";}
-	   $sql=mysql_query($cons)or die(mysql_error());
-	   $num_registros=mysql_num_rows($sql);
+	   $sql=$conexion_mysqli->query($cons)or die($conexion_mysqli->error);
+	   $num_registros=$sql->num_rows;
 	   if($num_registros>0)
 	   {
 		   $contador=0;
 		   $total_horas=0;
-			while($PE=mysql_fetch_assoc($sql))
+			while($PE=$sql->fetch_assoc())
 			{
 				$contador++;
 				
@@ -237,8 +237,7 @@ if($continuar)
 					<td colspan="8">Sin Datos</td>
 				 </tr>';
 		}
-		mysql_free_result($sql);
-	   mysql_close($conexion);
+		$sql->free();
 	   $conexion_mysqli->close();
        ?>
         </tbody>

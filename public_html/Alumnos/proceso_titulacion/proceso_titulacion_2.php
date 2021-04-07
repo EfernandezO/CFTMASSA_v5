@@ -9,9 +9,6 @@
 	$O->PERMITIR_ACCESO_USUARIO();
 //--------------FIN CLASS_okalis---------------//
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
 $error=0;
 if(($_POST)and($_SESSION["SELECTOR_ALUMNO"]["ACTIVO"]))
 {	
@@ -68,7 +65,7 @@ if(($_POST)and($_SESSION["SELECTOR_ALUMNO"]["ACTIVO"]))
 		
 		
 		$nombre_titulo=str_inde($_POST["nombre_titulo"],"");
-		$numero_inscripcion_titulo=mysql_real_escape_string($_POST["numero_inscripcion_titulo"]);
+		$numero_inscripcion_titulo=mysqli_real_escape_string($conexion_mysqli, $_POST["numero_inscripcion_titulo"]);
 		
 		if($codigo_registro>0)
 		{ $accion="actualizar";}
@@ -148,18 +145,19 @@ else
 //////////////////////////////////
 function BUSCA_OLD_REGISTRO($id_alumno, $id_carrera, $yearIngresoCarrera)
 {
+	require("../../../funciones/conexion_v2.php");
 	$cons="SELECT COUNT(id) FROM proceso_titulacion WHERE id_alumno='$id_alumno' AND id_carrera='$id_carrera' AND yearIngresoCarrera='$yearIngresoCarrera'";
-	$sql=mysql_query($cons)or die(mysql_error());
+	$sql=$conexion_mysqli->query($cons)or die("Error");
 	if(DEBUG){ echo"--_>FUNCION $cons<br>";}
-	$D=mysql_fetch_row($sql);
+	$D=$sql->fetch_row();
 	$coincidencias=$D[0];
 	if($coincidencias>0)
 	{ $exe=false;}
 	else
 	{ $exe=true;}
-	mysql_free_result($sql);
+	$sql->free();
+	$conexion_mysqli->close();
 	return($exe);
 }
-@mysql_close($conexion);
 $conexion_mysqli->close();
 ?>

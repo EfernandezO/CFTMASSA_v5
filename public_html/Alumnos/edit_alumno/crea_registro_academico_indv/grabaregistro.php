@@ -61,8 +61,8 @@ if($continuar)
 
    $res="SELECT * FROM mallas WHERE id_carrera= '$id_carrera' AND ramo<>'' ORDER by num_posicion, cod";
    if(DEBUG){ echo"$res<br>";}
-   $result=mysql_query($res);
-   while($row = mysql_fetch_array($result)) 
+   $result=$conexion_mysqli->query($res);
+   while($row = $result->fetch_assoc()) 
    {
 		$cod=$row["cod"];
 		$pr1=$row["pr1"];
@@ -131,6 +131,8 @@ else
     </tr>
   </table>';
  }
+
+ $conexion_mysqli->close();
 }
 else
 {
@@ -139,6 +141,7 @@ else
 
 function GRABA_REGISTRO($id_alumno, $codf, $nivelf, $ramof, $es_asignaturaf, $sedef, $id_carrera, $yearIngresoCarrera) 
 {	
+  require('../../../../funciones/conexion_v2.php'); 
     $result="INSERT INTO notas (id_alumno, id_carrera, yearIngresoCarrera, cod, nivel, ramo, es_asignatura, sede) VALUES ('$id_alumno', '$id_carrera', '$yearIngresoCarrera', '$codf', '$nivelf','$ramof', '$es_asignaturaf', '$sedef')";
 	
       if(DEBUG)
@@ -147,20 +150,22 @@ function GRABA_REGISTRO($id_alumno, $codf, $nivelf, $ramof, $es_asignaturaf, $se
   		}
 		else
 		{
-			if(!mysql_query($result))
+			if(!$conexion_mysqli->query($result))
 			 {
-				echo "Graba_REGISTRO ".mysql_error();
+				echo "Graba_REGISTRO ".$conexion_mysqli->error;
 			 }
 		}
+  $conexion_mysqli->close();  
 }
 
 
 function cambiasw($id_alumno, $id_carrera, $yearIngresoCarrera)
 {
+  require('../../../../funciones/conexion_v2.php'); 
    $res="SELECT * FROM notas WHERE id_alumno='$id_alumno' AND id_carrera='$id_carrera' AND yearIngresoCarrera='$yearIngresoCarrera'";
    if(DEBUG){ echo"--->$res<br>";}
-   $result=mysql_query($res);
-   $num_reg=mysql_num_rows($result);
+   $result=$conexion_mysqli->query($res);
+   $num_reg=$result->num_rows;
    if($num_reg>0)
    {
    		$error=false;
@@ -170,6 +175,7 @@ function cambiasw($id_alumno, $id_carrera, $yearIngresoCarrera)
    	$error=true;
    }
    if(DEBUG){ echo"Registro de Notas encontradas: $num_reg<br>";}
+   $conexion_mysqli->close();
    return $error;
 } 
  

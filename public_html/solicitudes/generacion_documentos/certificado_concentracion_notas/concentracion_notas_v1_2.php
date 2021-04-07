@@ -92,7 +92,7 @@ if($continuar)
 				$nivel_alumno=$_SESSION["SELECTOR_ALUMNO"]["nivel"];
 				$yearIngreso=$_SESSION["SELECTOR_ALUMNO"]["yearIngresoCarrera"];
 				$situacionAcademica=$_SESSION["SELECTOR_ALUMNO"]["situacion"];
-				$ver_logo=true;
+				$ver_logo=false;
 				break;
 		}
 		
@@ -134,7 +134,7 @@ if($continuar)
 		$notaFinalAsignaturas=PROMEDIO_FINAL_ASIGNATURAS($id_alumno, $id_carrera, $yearIngreso);
 	
 	//-----------DATOS FIRMA------------------//
-		$cargo="Pedro Rosales Villarroel \n Director Academico";
+		$cargo="Juan Pablo Jaña Perez \n Rector";
 	//-----------------------------------------//
 	
 			////definicion de parametros
@@ -165,7 +165,7 @@ if($continuar)
 			$pdf->SetAutoPageBreak(false, 10);
 ////////////////////
 			
-			$parrafo_1="El $institucion sede $sede_alumno, reconocido por el Ministerio de Educación el 3 de febrero de 1983, según Decreto Exento N. 29, certifica que el (la) señor(ita) ".utf8_decode($nombre_alumno." ".$apellido_alumno).", rut.: $rut_alumno, alumno de la carrera ".utf8_decode($carrera_alumno)." - $yearIngreso, obtuvo las siguientes calificaciones:";
+			$parrafo_1=utf8_decode("El $institucion sede $sede_alumno, reconocido por el Ministerio de Educación el 3 de febrero de 1983, según Decreto Exento N. 29, certifica que el (la) señor(ita) ".utf8_decode($nombre_alumno." ".$apellido_alumno).", rut.: $rut_alumno, alumno de la carrera ".$carrera_alumno." - $yearIngreso, obtuvo las siguientes calificaciones:");
 		
 		
 		//titulo
@@ -178,7 +178,7 @@ if($continuar)
 		$pdf->ln(10);
 		$pdf->SetFont('Arial','',12);
 		//parrafo 1
-		$pdf->MultiCell(195,6,utf8_decode($parrafo_1),$borde,"J");
+		$pdf->MultiCell(195,6,$parrafo_1,$borde,"J");
 		$pdf->ln();
 		/////
 		//notas encabezado
@@ -283,7 +283,7 @@ if($continuar)
 		$pdf->Text(10,271,"*Cod.".$CODIGO_GENERACION."*");
 		
 		 $pdf->SetXY(140,240);
-		 $pdf->Multicell(60,6,$cargo,0,"C");
+		 $pdf->Multicell(60,6,utf8_decode($cargo),0,"C");
 	
 		
 		$Y_actual=$pdf->GetY();

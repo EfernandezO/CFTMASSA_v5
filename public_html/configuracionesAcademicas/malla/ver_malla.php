@@ -8,11 +8,12 @@
 	$O->clave_del_archivo=md5("Gestion_carreras_Mallas->MALLAS_V1");
 	$O->PERMITIR_ACCESO_USUARIO();
 //--------------FIN CLASS_okalis---------------//
+require("../../../funciones/conexion_v2.php");
 if($_GET)
 {
 	$id_carrera=$_GET["id_carrera"];
 	$sede=$_GET["sede"];
-	  require("../../../funciones/conexion_v2.php");
+	  
 	  require("../../../funciones/funciones_sistema.php");
 	$array_ramos=array();
 	 $cons="SELECT * FROM mallas WHERE id_carrera='$id_carrera'";
@@ -121,12 +122,12 @@ function CONFIRMAR(url)
 	 
 	   $cons="SELECT * FROM mallas WHERE id_carrera='$id_carrera' order by num_posicion, cod";
 	   if(DEBUG){ echo"-->$cons<br>";}
-	   $sql=mysql_query($cons)or die(mysql_error());
-	   $num_registros=mysql_num_rows($sql);
+	   $sql=$conexion_mysqli->query($cons)or die($conexion_mysqli->error);
+	   $num_registros=$sql->num_rows;
 	   if($num_registros>0)
 	   {
 		   $contador=0;
-			while($M=mysql_fetch_assoc($sql))
+			while($M=$sql->fetch_assoc())
 			{
 				$contador++;
 				
@@ -172,8 +173,8 @@ function CONFIRMAR(url)
 					 </tr>';
 			}
 		}
-		mysql_free_result($sql);
-	   mysql_close($conexion);
+		$sql->free();
+	   $conexion_mysqli->close();
        ?>
         </tbody>
   </table>
@@ -200,6 +201,7 @@ function CONFIRMAR(url)
 	  }
 	  echo" $msj";
   }
+  
   ?>
   </div>
 </div>
