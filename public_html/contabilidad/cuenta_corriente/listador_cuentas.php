@@ -65,7 +65,7 @@ function nueva_cuenta()
 ///////////////////////////////////
 function elimina_cta(id)
 {
-	r=confirm('¿Seguro desea Eliminar esta Cuenta?');
+	r=confirm('ï¿½Seguro desea Eliminar esta Cuenta?');
 	if(r)
 	{
 		window.location="del_cta/del_cuenta.php?id="+id;
@@ -95,11 +95,11 @@ function elimina_cta(id)
     <?php
 		require("../../../funciones/conexion_v2.php");
 		$cons="SELECT * FROM cuenta_corriente ORDER BY id";//saco
-		$sql=mysql_query($cons)or die(mysql_error());
-		$num_reg=mysql_num_rows($sql);
+		$sql=$conexion_mysqli->query($cons)or die($conexion_mysqli->error);
+		$num_reg=$sql->num_rows;
 		if($num_reg>0)
 		 {
-		 	while($U=mysql_fetch_assoc($sql))
+		 	while($U=$sql->fetch_assoc())
 			{
 				$id=$U["id"];
 				$banco=$U["banco"];
@@ -121,13 +121,13 @@ function elimina_cta(id)
 					</tr>';
 				
 			}
-			mysql_free_result($sql);
+			$sql->free();
 		 }
 		else
 		 {
 		 	echo'<tr><td colspan="5">Cuenta Corriente NO Registradas...</td></tr>';
 		 } 
-		 mysql_close($conexion);
+		 $conexion_mysqli->close();
 	?>
 </tbody>
   </table>

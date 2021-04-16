@@ -218,12 +218,12 @@ if($continuar)
 		
 	//--parrafos--//
 	$parrafo_1=utf8_decode($nombre_firma).', '.$cargo_firma.' del Centro de Formación Técnica, Massachusetts, Certifica:';
-	$parrafo_1='El Centro de Formación Técnica, Massachusetts, Certifica:';
-	$parrafo_1b='Que, el(la) Señor(ita): '.utf8_decode($nombre_alumno)." ".utf8_decode($apellido_alumno).', Run '.$rut_alumno.', '.$verbo.' alumno(a) regular de la carrera de '.utf8_decode($carrera_alumno).", nivel ".$DCN_nivel_alumno_al_realizar_contrato_final.", este corresponde al ".$semestre_label." a�o lectivo ".$S_year.".";
+	$parrafo_1=utf8_decode('El Centro de Formación Técnica, Massachusetts, Certifica:');
+	$parrafo_1b=utf8_decode('Que, el(la) Señor(ita): '.$nombre_alumno." ".$apellido_alumno.', Run '.$rut_alumno.', '.$verbo.' alumno(a) regular de la carrera de '.$carrera_alumno.", nivel ".$DCN_nivel_alumno_al_realizar_contrato_final.", este corresponde al ".$semestre_label." año lectivo ".$S_year.".");
 	
 	//$parrafo_1b='Que, el(la) Se�or(ita): '.$nombre_alumno." ".$apellido_alumno.' es alumno(a) regular de la carrera de '.$carrera_alumno.", nivel 2, este corresponde al Segundo Semestre a�o lectivo 2011.";
 	
-	$parrafo_2='Que, su funcionamiento como "Centro de Formación Técnica" fue aprobado por Decreto Exento N. 29 de 02 de febrero de 1983, inscrito en el Registro correspondiente bajo el N. 77.';
+	$parrafo_2=utf8_decode('Que, su funcionamiento como "Centro de Formación Técnica" fue aprobado por Decreto Exento N. 29 de 02 de febrero de 1983, inscrito en el Registro correspondiente bajo el N. 77.');
 	
 	$parrafo_3='Que, por '.utf8_decode($decreto).', se aprobaron Planes y Programas de Estudios de la mencionada Carrera.';
 	

@@ -130,6 +130,7 @@ $objPHPExcel->getProperties()->setCreator("Elias Fernandez")
 	$objPHPExcel->getActiveSheet()->setSharedStyle($sharedStyle3, "A15:E15");	
 	
 	$auxCodigoLetra=72;//G
+	$auxColumna=chr($auxCodigoLetra);
 	$prefijo="";
 	
 	$ARRAY_ID_CLASES=array();

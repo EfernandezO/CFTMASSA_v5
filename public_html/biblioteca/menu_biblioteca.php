@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
 //--------------CLASS_okalis------------------//
 	require("../OKALIS/class_OKALIS_v1.php");
 	define("DEBUG", false);
@@ -296,5 +294,5 @@ if(isset($_GET["error"]))
 ?>
 </div>
 </body>
-<?php  mysql_close($conexion); $conexion_mysqli->close();?>
+<?php  $conexion_mysqli->close();?>
 </html>

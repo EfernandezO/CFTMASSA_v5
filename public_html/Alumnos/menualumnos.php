@@ -175,6 +175,7 @@ ddsmoothmenu.init({
         <ul>
             <li><a href="#">Notas Parciales</a>
             	<ul>
+                    <li><a href="../Docentes/selectorAsignaturaDocenteUnificado/selectorAsignaturaAdmin.php">Libro Clases</a></li>
                		<li><a href="../Notas_parciales_3/evaluaciones/index.php">Ingreso Notas Parciales</a></li>
                     <li><a href="../Notas_parciales_3/revisionNotas/revisionNotas.php">Revision Evaluaciones</a></li>
                 </ul>

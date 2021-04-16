@@ -36,7 +36,6 @@ if($continuar)
 			$proveedor_ciudad=$DP["ciudad"];
 			$proveedor_telefono=$DP["telefono"];
 		$sql->free();	
-	mysql_close($conexion);
 	$conexion_mysqli->close();
 }
 else

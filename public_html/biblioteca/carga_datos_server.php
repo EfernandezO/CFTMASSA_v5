@@ -12,13 +12,13 @@ function RECARGAR($FORMULARIO)
 {
 	require("../../funciones/conexion_v2.php");
 	require("../../funciones/funciones_sistema.php");
-	$codigo=mysql_real_escape_string($FORMULARIO["codigo_libro"]);
-	$sede=mysql_real_escape_string($FORMULARIO["sede"]);
-	$id_carrera=mysql_real_escape_string($FORMULARIO["carrera"]);
-	$titulo_buscado=mysql_real_escape_string($FORMULARIO["titulo"]);
+	$codigo=mysqli_real_escape_string($conexion_mysqli,$FORMULARIO["codigo_libro"]);
+	$sede=mysqli_real_escape_string($conexion_mysqli,$FORMULARIO["sede"]);
+	$id_carrera=mysqli_real_escape_string($conexion_mysqli,$FORMULARIO["carrera"]);
+	$titulo_buscado=mysqli_real_escape_string($conexion_mysqli,$FORMULARIO["titulo"]);
 	$div='apDiv1';
 	$html="";
-	 $num_reg=0;
+	$num_reg=0;
 	
 	$resaltar_texto=false;
 	
