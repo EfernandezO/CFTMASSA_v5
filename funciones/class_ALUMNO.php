@@ -50,6 +50,10 @@ class ALUMNO{
 	private $yearIngresoCarreraPeriodo;
 	private $idContratoPeriodo;
 	private $presenteEnPeriodo;
+
+	//se usan para identificar que matricula usara el alumno en caso de tener mas de una
+	private $selector_idCarrera;
+	private $selector_yearIngresoCarrera;
 	
 	private $ruta_conexion;
 	private $ERROR=0;
@@ -543,7 +547,58 @@ class ALUMNO{
 		else{$array_respuesta=array($semestre_X, $year_X);}
 		return($array_respuesta);
 	}
-	
+	//asignaturas aprobadas,reprobadas y total de pendientes hasta el egreso
+
+	public function INFO_ASIGNATURAS_AVANCE(){
+		$ruta_conexion=$this->ruta_conexion."conexion_v2.php";	
+	     require($ruta_conexion);
+		 //inicializacion de variables
+		 $codAsignaturasPendientes=array();
+		 $codAsignaturasAprobadas=array();
+		 $codAsignaturasReprobadas=array();
+		 $notaAprobacion=4;
+
+		if($this->DEBUG){ echo"<br><strong>----------------------------INICIO INFO_ASIGNATURAS_AVANCE-------------------------------------</strong></br>";}
+		if(($this->idAlumnoObjeto>0)and($this->numeroMatriculasAlumno>0)){
+			if($this->DEBUG){ echo"Revisando matriculas<br>";}
+
+			//si no hay idcarrera y yearingreso seleccionado para el alumno(de sus matricula), se selecciona los datos de acuerdo a ultima matricula
+			if(empty($this->selector_idCarrera)or(empty($this->selector_yearIngresoCarrera))){$this->selector_idCarrera=$this->getUltimaIdCarreraMat(); $this->selector_yearIngresoCarrera=$this->getUltimoYearIngresoMat();}
+
+			$cons="SELECT cod, nota, nivel FROM notas WHERE id_alumno='$this->idAlumnoObjeto' AND id_carrera='$this->selector_idCarrera' AND yearIngresoCarrera='$this->selector_yearIngresoCarrera'";
+			if($this->DEBUG){ echo"<br> -> $cons</br>";}
+			$sql=$conexion_mysqli->query($cons)or die("Error en consulta de notas de alumno");
+			$numeroRegistros=$sql->num_rows;
+			if($numeroRegistros>0){
+				while($N=$sql->fetch_assoc()){
+					
+					$auxNota=$N["nota"];
+					$auxCod=$N["cod"];
+					
+					//asignatura aprobada
+					if($auxNota>=$notaAprobacion){array_push($codAsignaturasAprobadas, $auxCod);}
+					else{array_push($codAsignaturasPendientes, $auxCod);}
+
+					if(($auxNota>0)and($auxNota<$notaAprobacion)){array_push($codAsignaturasReprobadas, $auxCod);}
+
+					
+
+				}
+			}else{
+				if($this->DEBUG){ echo"<br>Alumno sin registro academico<br>";}
+			}
+			$sql->free();
+
+
+		}
+		$conexion_mysqli->close();
+
+		if($this->DEBUG){ echo"<br><strong>----------------------------FIN INFO_ASIGNATURAS_AVANCE-------------------------------------</strong></br>";}
+		$array_respuesta=array($codAsignaturasAprobadas,$codAsignaturasReprobadas, $codAsignaturasPendientes);
+		return($array_respuesta);
+
+	}
+
 	//selecciona la matricula correspondiente al periodo consultado
 	private function MATRICULA_SEGUN_PERIODO($semestreConsulta, $yearConsulta){
 		$auxIdcarrera="";

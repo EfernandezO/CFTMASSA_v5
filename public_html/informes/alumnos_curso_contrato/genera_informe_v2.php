@@ -270,6 +270,9 @@ require("../../../funciones/class_ALUMNO.php");
 														<td>E-mail</td>
 														<td>E-mail Institucional</td>
 														<td>Estado year('.$year_vigencia.')</td>
+														<td>Numero Asignaturas Aprobadas</td>
+														<td>Numero Asignaturas Reprobadas</td>
+														<td>Numero Asignaturas Pendientes</td>										
 														<td>Matricula valor</td>
 														<td>Matricula a pagar</td>
 														<td>Matricula forma Pago</td>
@@ -487,7 +490,10 @@ require("../../../funciones/class_ALUMNO.php");
 					$C_presenteEnPeriodo=$ALUMNO->getPresenteEnPeriodo();
 					
 					$arrayBeneficiosEstudiantiles=BENEFICIOS_ESTUDIANTILES_ASIGNADOS($C_idContratoPeriodo);
-					
+					//--------------------------------------------------------------------------//
+					//veo estado de avance de asignaturas
+					list($codAsignaturasAprobadas, $codAsignaturasReprobadas, $codAsignaturasPendientes)=$ALUMNO->INFO_ASIGNATURAS_AVANCE();
+
 					if(empty($C_jornada_contrato)){if(DEBUG){echo"Jornada de cotrato vacia....<br>";}}
 					if(DEBUG){ echo"Jornada Periodo: $C_jornada_contrato<br> Nivel de Alumno segun contrato: $C_nivel_alumno_contrato<br>id_contrato seleccionado: $C_idContratoPeriodo<br>";}
 					//-------------------------------//
@@ -611,6 +617,10 @@ require("../../../funciones/class_ALUMNO.php");
 											<td>'.$A_emaiInstitucional.'</td>
 											<td>'.$condicion_alumno_este_year.'</td>
 											
+											<td>'.count($codAsignaturasAprobadas).'</td>
+											<td>'.count($codAsignaturasReprobadas).'</td>
+											<td>'.count($codAsignaturasPendientes).'</td>
+
 											<td>'.$array_datos_contrato["matricula_valor"].'</td>
 											<td>'.$array_datos_contrato["matricula_a_pagar"].'</td>
 											<td>'.$array_datos_contrato["matricula_forma_pago"].'</td>
