@@ -18,7 +18,7 @@ $mail = new PHPMailer();
 	switch($servidor_correo)
 	{
 		case"gmail":
-			if(DEBUG){$mail->SMTPDebug  = 1;}
+			if(DEBUG){$mail->SMTPDebug  = 2;}
 				$mail->Host = "smtp.gmail.com";  // Servidor de Salida,
 				$mail->IsSMTP(); 
 				$mail->Port = 587; 
@@ -53,7 +53,11 @@ $mail = new PHPMailer();
 		$mail->AddAddress("informatica@cftmass.cl");
 		//$mail->AddBCC("contabilidad@cftmass.cl", "contabilidad@cftmass.cl");
 		//$mail->AddStringAttachment($adjunto, $nombre_archivo_adjunto,'base64','application/pdf');
-		var_dump($mail);						
+		var_dump($mail);	
+		echo"<br><br>DATOS DEL SERVER<br>";
+		var_dump($_SERVER);	
+		echo"<br>";
+							
 		if($mail->Send())
 		{echo"<br><strong>Email Enviado :) con servidor [$servidor_correo]</strong> ".$mail->ErrorInfo."<br>";}
 		else

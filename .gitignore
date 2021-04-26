@@ -1,3 +1,8 @@
 /cron
 /funciones
 /Respaldos
+.vscode/sftp.json
+public_html/utilidades/auto_backup/backup.php
+public_html/utilidades/auto_backup/auto_backup.bat
+public_html/utilidades/auto_backup/auto_mysqldump.bat
+public_html/utilidades/auto_backup/auto_mysqldump.php
