@@ -120,11 +120,15 @@ $pagina = mysqli_real_escape_string($conexion_mysqli, $_GET['pagina']);
 						else{ $url='../../buscador_alumno_BETA/enrutador.php?validador='.$validador.'&id_alumno='.$S_id_receptor.'&url='.base64_encode("../solicitudes/operaciones/autorizacion_financiera_1.php?id_solicitud=$S_id").'"'; $target="";}
 						////////////////////
 						//datos del alumno
-						$cons_A="SELECT * FROM alumno WHERE id='$S_id_receptor' LIMIT 1";
-						$sql_A=$conexion_mysqli->query($cons_A);
-							$DA=$sql_A->fetch_assoc();
-							$nombre_receptor=$DA["nombre"]." ".$DA["apellido_P"]." ".$DA["apellido_M"];
-						$sql_A->free();
+						$nombre_receptor="";
+						if($S_id_receptor>0){
+							$cons_A="SELECT * FROM alumno WHERE id='$S_id_receptor' LIMIT 1";
+							$sql_A=$conexion_mysqli->query($cons_A);
+								$DA=$sql_A->fetch_assoc();
+								if(isset($DA["nombre"])){
+								$nombre_receptor=$DA["nombre"]." ".$DA["apellido_P"]." ".$DA["apellido_M"];}
+							$sql_A->free();
+						}
 						//datos carrera
 						$cons_C="SELECT carrera FROM carrera WHERE id='$S_id_carrera_receptor' LIMIT 1";
 						
@@ -162,18 +166,25 @@ $pagina = mysqli_real_escape_string($conexion_mysqli, $_GET['pagina']);
 				}
 				////////////////////
 				//datos personal autorizador
+				$nombre_autorizador="";
+				if($S_id_autorizador>0){
 				$cons_p="SELECT nombre,apellido FROM personal WHERE id='$S_id_autorizador' LIMIT 1";
 						$sql_p=$conexion_mysqli->query($cons_p);
 							$DP=$sql_p->fetch_assoc();
-							$nombre_autorizador=$DP["nombre"]." ".$DP["apellido"];
+							if(isset($DP["nombre"]))
+							{$nombre_autorizador=$DP["nombre"]." ".$DP["apellido"];}
 						$sql_p->free();
+				}
 				///////////////////////////////////////////
 				//datos personal creador
+				$nombre_creador="";
+				if($S_id_creador>0){
 				$cons_p="SELECT nombre,apellido FROM personal WHERE id='$S_id_creador' LIMIT 1";
 						$sql_p=$conexion_mysqli->query($cons_p);
 							$DP=$sql_p->fetch_assoc();
-							$nombre_creador=$DP["nombre"]." ".$DP["apellido"];
+							if(isset($DP["nombre"])){$nombre_creador=$DP["nombre"]." ".$DP["apellido"];}
 						$sql_p->free();
+				}
 				
 				echo'<tr height="35">
 						<td>'.$aux.'</td>
