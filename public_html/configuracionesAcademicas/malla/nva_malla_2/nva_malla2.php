@@ -73,7 +73,7 @@ if($_POST)
 		{ if(DEBUG){echo"NO GRABAR : J=$j<br>";} $error="G1";}
 	}
 	
-	@mysql_close($conexion);
+	//@mysql_close($conexion);
 	$conexion_mysqli->close();
 	
 	$url="../ver_malla.php?id_carrera=$id_carrera&sede=$sede&error=$error";

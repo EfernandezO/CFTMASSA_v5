@@ -74,6 +74,7 @@ $nombre_carrera=NOMBRE_CARRERA($id_carrera);
 function Confirmar()
 {
 	c=confirm('!! Si esta Carrera Ya tenia una Malla Registrada,\n Será Eliminada y Sobreescrita ¡¡');
+	
 	if(c==true)
 	{
 		document.frmX.submit();

@@ -1,7 +1,7 @@
 <?php
 //--------------CLASS_okalis------------------//
 	require("../../OKALIS/class_OKALIS_v1.php");
-	define("DEBUG", true);
+	define("DEBUG", false);
 	$O=new OKALIS();
 	$O->DEBUG=DEBUG;
 	$O->ruta_conexion="../../../funciones/";
@@ -37,11 +37,11 @@
 }
 #apDiv1 {
 	position:absolute;
-	width:40%;
+	width:243px;
 	height:50px;
 	z-index:2;
-	left: 30%;
-	top: 350px;
+	left: 308px;
+	top: 298px;
 	text-align: center;
 }
 -->
@@ -56,8 +56,7 @@
 <div id="Layer1">
 <form action="ranking_alumnos.php" method="post" name="frm" id="frm">
   <div id="apDiv1">Segun los Parametros de Selecciona<br />
-    Busca los alumnos vigentes y promedia sus notas<br />
-    luego se muestra un resumen con el mejor promedio x carrera
+    Busca los alumnos vigentes y promedia sus notas, luego se muestra un resumen con el mejor promedio x carrera
   </div>
   <table width="50%" border="1" align="center">
   <caption></caption>
@@ -72,6 +71,7 @@
       <td colspan="5"><?php
 	  include("../../../funciones/funcion.php");
 	  echo selector_sede(); 
+	 
 	  ?></td>
     </tr>
     <tr class="odd">
@@ -83,6 +83,7 @@
    
    $res="SELECT id, carrera FROM carrera";
    $result=mysql_query($res);
+   echo $result
    ?>
    <select name="carrera" id="carrera">
    <?php

@@ -49,8 +49,8 @@ else{ $semestre_actual=1;}
 $semestre_consulta=$semestre_actual;
 $year_consulta=$year_actual;
 
-//$semestre_consulta=2;
-//$year_consulta=2020;
+//$semestre_consulta=1;
+//$year_consulta=2019;
 
 //PERIODO A CONSULTAR MANUAL DE MATRICULA
 	require("../../../funciones/conexion_v2.php");
@@ -112,7 +112,7 @@ $tabla="<table border=1>
 				<td>Jornada</td>
 				<td>Nivel</td>
 				<td bgcolor='#CCCC33'>Nivel Academico</td>
-				<td>Año Ingreso</td>
+				<td>Aï¿½o Ingreso</td>
 				<td>Sede</td>
 				<td>Situacion</td>
 				<td>Semestre Egreso</td>
@@ -159,10 +159,10 @@ $tabla="<table border=1>
 				<td bgcolor='#FAAC58'>Ultimo periodo TOMA_RAMO</td>
 				<td bgcolor='#FE9A2E'>Num Ramos Inscritos Historico(toma ramo hasta ".YEAR_CONSULTA.")</td>
 				<td bgcolor='#FACC2E'>Num Ramos Aprobados Historico(toma ramo hasta ".YEAR_CONSULTA.")</td>
-				<td bgcolor='#66CC66'>Promedio Nota asignaturas Tomadas(Año ".YEAR_CONSULTA.")</td>
+				<td bgcolor='#66CC66'>Promedio Nota asignaturas Tomadas(Aï¿½o ".YEAR_CONSULTA.")</td>
 				
-				<td bgcolor='#66CC66'>Promedio Nota asignaturas Tomadas(1 - Año ".YEAR_CONSULTA.")</td>
-				<td bgcolor='#66CC66'>Promedio Nota asignaturas Tomadas(2 - Año ".YEAR_CONSULTA.")</td>
+				<td bgcolor='#66CC66'>Promedio Nota asignaturas Tomadas(1 - Aï¿½o ".YEAR_CONSULTA.")</td>
+				<td bgcolor='#66CC66'>Promedio Nota asignaturas Tomadas(2 - Aï¿½o ".YEAR_CONSULTA.")</td>
 			</tr>";
 if(isset($sheetData))
 {

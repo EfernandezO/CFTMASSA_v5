@@ -20,13 +20,13 @@ class EMAIL extends PHPMailer{
         //Don't forget to do this or other things may not be set correctly!
         parent::__construct($exceptions);
         //Set a default 'From' address
-        $this->setFrom('no_responder@cftmass.cl', 'no_responder CFT Massachusetts');
+        $this->setFrom('no_responder_Cftmass@cftmass.cl', 'no_responder CFT Massachusetts');
         //Send via SMTP
         $this->isSMTP();
         //Equivalent to setting `Host`, `Port` and `SMTPSecure` all at once
         $this->Host = 'tls://smtp.gmail.com:587';
-		$this->Username ="no_responder@cftmass.cl";  // Nombre de usuario del correo
-    	$this->Password = "15_xXCo37"; // Contras
+		$this->Username ="no_responder_Cftmass@cftmass.cl";  // Nombre de usuario del correo
+    	$this->Password = "cftmass2021"; // Contras
         //Set an HTML and plain-text body, import relative image references
         $this->msgHTML($body, './images/');
         //Show debug output
@@ -37,9 +37,9 @@ class EMAIL extends PHPMailer{
 		
 		// $this->msgHTML($body, './images/');
         //Inject a new debug output handler
-        $this->Debugoutput = static function ($str, $level) {
-            echo "Debug nivel $level; message: $str\n <br>";
-        };
+        //$this->Debugoutput = static function ($str, $level) {
+        //    echo "Debug nivel $level; message: $str\n <br>";
+        //};
     }
 
     //Extend the send function

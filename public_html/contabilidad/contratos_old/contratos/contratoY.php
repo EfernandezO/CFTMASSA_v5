@@ -200,7 +200,7 @@ if($_GET)
 	$parrafo_1_b=" con domicilio en ".utf8_decode($direccion_alumno).", ".utf8_decode($ciudad_alumno)." en adelante el Alumno, conviene el siguiente contrato de Prestacion de Servicios Educacionales:";
 	
 	//*************
-	$parrafo_2="El C.F.T Massachusetts, se obliga a impartir la carrera que el alumno opta de acuerdo a los Planes aprobados. Ademas ofrecera todo el uso del equipamiento Academico, según necesidad de la carrera.";
+	$parrafo_2="El C.F.T Massachusetts, se obliga a impartir la carrera, de acuerdo a los Planes aprobados, o el programa de especialización técnica al que el alumno opta. Ademas ofrecera todo el uso del equipamiento Academico, según necesidad de la carrera.";
 	
 	$parrafo_3="Don(ña) ".utf8_decode($alumno)." se obliga a asistir a clases regularmente y a cumplir las norrmas establecidas en el Reglamento Académico.";
 	
@@ -208,25 +208,25 @@ if($_GET)
 	
 	$parrafo_5a="a)	El alumno para hacer efectivo su retiro deberá informarlo por escrito en los departamentos de secretaría académica y finanzas.";
 	
-	$parrafo_5b="b)	Administrativamente, el alumno tendrá la obligación de cancelar la totalidad del valor del semestre en curso a menos que:";
+	$parrafo_5b="b)	Administrativamente, el alumno tendrá la obligación de cancelar la totalidad del valor del semestre en curso del programa en su totalidad a menos que:";
 		$parrafo_5b1="1. Se comunique antes del inicio de clases.";
 		$parrafo_5b2="2. Sea en caso  de fuerza mayor como: Traslado de ciudad, enfermedad o fallecimiento del sostenedor, debidamente justificados con los documentos pertinentes.";
 		$parrafo_5c="c)En cualquier caso no estipulado en los puntos anteriores, el alumno podra exponer su problema, por escrito al Consejo Superior de la Institucion, el que decidira la situacion en particular.";
 		
 		$parrafo_6="El no pago del documento en la fecha dara derecho a la institucion a seguir las acciones legales que correspondan, y a suspender las prestaciones motivo de este contrato, siendo de responsabilidad del alumno los daños academicos que por este motivo se ocasione. Ademas, el alumno autoriza a enviar los antecedentes de su deuda vencida a los servicios de informacion comercial para conocimiento publico.";
 		
-		$parrafo_7_a="El Alumno queda matriculado en la Carrera: ";
+		$parrafo_7_a="El Alumno queda matriculado en: ";
 		
-		if($vigencia=="anual")
-		{$parrafo_7_b=" Nivel: ".$nivel." (semestre 1) y Nivel: ".$nivel_2." (semestre 2), Jornada: ".$jornada_label;}
-		else
-		{ $parrafo_7_b=" Nivel: ".$nivel.", Jornada: ".$jornada_label;}
+	//	if($vigencia=="anual")
+		//{$parrafo_7_b=" Nivel: ".$nivel." (semestre 1) y Nivel: ".$nivel_2." (semestre 2), Jornada: ".$jornada_label;}
+	//	else
+	//	{ $parrafo_7_b=" Nivel: ".$nivel.", Jornada: ".$jornada_label;}
 		
 		
 		$parrafo_8="Es decision del C.F.T realizar cambios de jornada de un curso cuando lo estime conveniente.";
 		$parrafo_9="El Presente contrato durará hasta el ".fecha_format($fecha_fin_contrato);
-		$parrafo_10="Los valores del proceso de titulacion no estan contemplados en este contrato.";
-		$parrafo_11="El C.F.T. se reserva el derecho a no dar inicio a una carrera por no tener el número mínimo de veinte alumnos matriculados en el primer nivel. Para optar a la mencion de una carrera es requisito contar con diez alumnos matriculados como minimo en el quinto nivel de dicha carrera. Las personas que se matriculan en alguna de estas carreras declaran que fueron informadas oportunamente de la alternativa de que la carrera no sea dictada por el C.F.T. por lo que renuncian a toda acción que tenga como objetivo de que la carrera se imparta o retribución pecuniaria. A su vez el C.F.T se obliga a reintegrar el monto de la matricula pagado por el suscrito.";
+		$parrafo_10="para el caso de matícula en una carrera, los valores del proceso de titulacion no estan contemplados en este contrato.";
+		$parrafo_11="El C.F.T. se reserva el derecho a no dar inicio a una carrera o programa de especialización técnica por no tener el número mínimo de veinte alumnos matriculados en el primer nivel. Para optar a la mencion de una carrera es requisito contar con diez alumnos matriculados como minimo en el quinto nivel de dicha carrera. Las personas que se matriculan en alguna de estas carreras o programas de especialización técnica declaran que fueron informadas oportunamente de la alternativa de que la carrera o programa de especialización técnica no sea dictada por el C.F.T. por lo que renuncian a toda acción que tenga como objetivo de que la carrera o programa de especialización técnica se imparta o retribución pecuniaria. A su vez el C.F.T se obliga a reintegrar el monto de la matricula pagado por el suscrito. Es importante mencionar que todo programa de especialización técnica no constituye título profesional ni grado académico. ";
 		$parrafo_12="Con el objeto de facilitar el cobro de las cantidades que resulten adeudadas, el alumno confiere al CFT MASSACHUSETTS , en adelante e indistintamente, el \"Mandatario\", un mandato especial, para que actuando separadamente en nombre y representación del Mandante por medio apoderados autorizados del Mandatario, proceda a reconocer deudas y/o suscribir a la orden del CFT MASSACHUSETTS con facultad expresa de auto contratar y sin ánimo de novar, uno o más pagarés por la cantidad correspondiente a las sumas que el alumno adeudare al CFT MASSACHUSETTS originadas por el pago de arancel, incluido capital, reajustes, intereses normales o penales, en gastos u otros pagos que el CFT MASSACHUSETTS hubiere hecho por cuenta del Alumno, siguiendo las instrucciones dadas en el acápite siguiente y con las facultades que ahí se indican. El CFT MASSACHUSETTS acepta este mandato que se le ha conferido. Las partes acuerdan elevarlo a condición indispensable para la contratación del servicio de que da cuenta el presente mandato, sin perjuicio del envío de los avisos de cobranza que se hará llegar al Alumno. La actuación personal del mandante reconociendo deudas o suscribiendo uno o más pagarés de aquellos a los que se refiere esta cláusula, no implicará la revocación ni el término del mandato a que se refiere el presente instrumento. El alumno autoriza al CFT MASSACHUSETTS a delegar el presente mandato. 
 El CFT MASSACHUSETTS queda especialmente autorizado para incorporar en el o los pagarés que se suscriban de conformidad con lo dispuesto en la cláusula anterior, todas las menciones necesarias para su validez como título ejecutivo y hacer autorizar la firma de los apoderados ante Notario u otro ministro de fe competente, liberándolo de la obligación de protesto. En particular, tratándose de las enunciaciones relativas a la cantidad, cláusula de aceleración, fecha de vencimiento, fecha de emisión, tasa de interés, lugar de pago e indivisibilidad, el Alumno imparte al CFT MASSACHUSETTS las siguientes instrucciones para incorporarlas en los pagarés: i) Cantidad: será aquella que resulte de la liquidación que practique el CFT MASSACHUSETTS por el monto adeudado por el Alumno originada en uno o más servicios que éste le hubiere otorgado, incluido capital, reajustes, intereses, intereses normales o penales, en impuesto, en gastos u otros pagos que el Banco hubiere hecho por cuenta del Cliente; ii) fecha de emisión: cualquier fecha desde el día en que el CFT MASSACHUSETTS inicie la prestación del servicio de que da cuenta el presente contrato; iv) fecha de vencimiento: el día siguiente a la fecha de emisión u otro cualquiera posterior; v) tasa de interés: será la tasa máxima convencional para operaciones en moneda nacional no reajustables que rija a la fecha de suscripción del pagaré; vi) lugar de pago: la oficina del CFT MASSACHUSETTS; y vii) pactar la indivisibilidad de la obligación de que da cuenta el o los pagarés.";
 		if($mostrar_logo)

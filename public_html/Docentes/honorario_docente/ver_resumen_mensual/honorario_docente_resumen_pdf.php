@@ -128,11 +128,6 @@ if($_GET)
 	{ $pdf->Cell(190,6,"Sin Registros...:(",$borde,1,"C");}
 	$sqli_H->free();	
 
-			
-
-		
-
-	mysql_close($conexion);
 	$conexion_mysqli->close();
 	if(!DEBUG){$pdf->Output();}
 }

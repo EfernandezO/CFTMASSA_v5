@@ -3,6 +3,7 @@
 require("../../../../OKALIS/class_OKALIS_v1.php");
 define("DEBUG", false);
 $O=new OKALIS();
+$O->setDisplayErrors(true);
 $O->DEBUG=DEBUG;
 $O->ruta_conexion="../../../../../funciones/";
 $O->clave_del_archivo=md5("Docentes->estudioTrabajo");
@@ -16,21 +17,26 @@ if((isset($_FILES["archivo"]))and(isset($_POST["E_id"])))
 	$id_funcionario=$_POST["id_funcionario"];
 	
 	$path="../../../../CONTENEDOR_GLOBAL/docente_estudios/";
+	//$path="/home/cftmassa/public_html/CONTENEDOR_GLOBAL/docente_estudios/";
 	$array_formatos_compatibles=array("jpg", "jpeg", "png", "gif");
 	$peso_maximo=10000000;///peso maximo archivo cargado
 	
 	$nombre_archivo=$_FILES["archivo"]["name"];
 	$tmp_nombre=$_FILES["archivo"]["tmp_name"];
 	$peso_archivo=$_FILES["archivo"]["size"];
-	$extencion_archivo=end(explode(".",$nombre_archivo));
 	
-	$nombre_archivo_new="registro_estudio_".$id_funcionario."_".$E_id.".$extencion_archivo";
+	$extencion_archivo=explode(".",$nombre_archivo);
+	$extencion_archivo=end($extencion_archivo);
+	
+	$nombre_archivo_new="registro_estudio_".$id_funcionario."_".$E_id."X.$extencion_archivo";
+	//$nombre_archivo_new="img.jpg";
 	
 	if(DEBUG){ echo"Extencion: $extencion_archivo PESO: $peso_archivo (MAXIMO: $peso_maximo)<br>";}
 	$destino=$path.$nombre_archivo_new;
 	
-	if((in_array($extencion_archivo,$array_formatos_compatibles))and($peso_archivo<=$peso_maximo))
+	if((in_array($extencion_archivo,$array_formatos_compatibles)))
 	{
+		if(DEBUG){ echo"Extencion: $extencion_archivo <br>Destino: $destino<br> tmp: $tmp_nombre<br> destino: $destino<br>";}
 		if(move_uploaded_file($tmp_nombre, $destino))
 		{
 			include("../../../../../funciones/conexion_v2.php");
@@ -43,6 +49,9 @@ if((isset($_FILES["archivo"]))and(isset($_POST["E_id"])))
 					REGISTRA_EVENTO($evento);
 				}
 			$error="C0";
+			
+			//intento cambiar permiso de archivo
+			chmod($destino, 777);
 		}
 		else{ $volver_a_index=true; $error="C1";}
 	}

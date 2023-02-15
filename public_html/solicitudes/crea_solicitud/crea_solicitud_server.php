@@ -184,6 +184,11 @@ function VERIFICA_SOLICITUD($FORMULARIO)
 					else{ $msj_error="Condicion de Academica de Alumno no es EGRESADO";}
 					
 					break;
+				case"hola":
+						$objResponse->alert("Va a continuar si o si");
+						$continuar=true;
+				
+					break;	
 				case"plan_curricular":
 					$cons_pt="SELECT proceso_titulacion.*, alumno.situacion FROM proceso_titulacion INNER JOIN alumno ON proceso_titulacion.id_alumno=alumno.id WHERE proceso_titulacion.id_alumno='$id_alumno' AND proceso_titulacion.id_carrera='$id_carrera' AND yearIngresoCarrera='$yearIngresoCarrera' ORDER by id desc LIMIT 1";
 					if(DEBUG){$objResponse->alert( $cons_pt);}

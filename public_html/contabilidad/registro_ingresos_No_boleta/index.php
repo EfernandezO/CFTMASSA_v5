@@ -244,7 +244,9 @@ $array_bancos=array("Estado","Chile","Santander","Internacional","Scotiabank","C
         <label for="por_concepto"></label>
         <select name="por_concepto" id="por_concepto">
           <option value="otro_ingreso">otro_ingreso</option>
+          <option value="otro_ingreso">Ingreso Ed. Continua</option>
           <option value="otro_egreso" selected="selected">otro_egreso</option>
+          <option value="otro_egreso" selected="selected">Egreso Ed. Continua<br/></option>
         </select>
         </td>
     </tr>

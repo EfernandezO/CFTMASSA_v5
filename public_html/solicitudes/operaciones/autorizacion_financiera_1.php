@@ -55,7 +55,7 @@ if($_SESSION["SELECTOR_ALUMNO"]["ACTIVO"])
 	$array_bancos=array("Estado","Chile","Santander","Internacional","Scotiabank","Credito e Inversiones","Corpbanca","Bice","HSBC Bank","Itau","Security","Falabella","Ripley","Consorcio","Penta","Paris","BBVA");
  	sort($array_bancos);
 	//valores
-	$ARRAY_VALORES["certificado"]=array("alumno_regular"=>2500,
+	$ARRAY_VALORES["certificado"]=array("alumno_regular"=>3000,
 										 "copia_titulo"=>9000,
 										 "certificado_titulo"=>23000,
 										 "concentracion_notas"=>13000,

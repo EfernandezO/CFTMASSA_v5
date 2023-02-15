@@ -253,7 +253,7 @@ if($_GET)
 			$nombre=$auxAlumno->getNombre();
 			$apellidos=$auxAlumno->getApellido_P()." ".$auxAlumno->getApellido_M();
 			$emailAlumno=$auxAlumno->getEmail();
-			//$emailAlumno=$email_destino_copia_oculta;
+			$emailAlumno=$email_destino_copia_oculta;
 			
 
 			$id_carrera_alumno=$auxArraydatos["id_carrera"];

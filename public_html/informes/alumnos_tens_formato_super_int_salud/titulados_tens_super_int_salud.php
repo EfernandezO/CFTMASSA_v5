@@ -159,7 +159,7 @@ if(!DEBUG)
 							
 							if(($mostrar_alumno)and(!$alumno_ya_registrado))
 							{
-								if($A_nombre_titulo=="tecnico de nivel superior en enfermeria"){$A_nombre_titulo_label='Técnico de Nivel Superior en Enfermería';}
+								if($A_nombre_titulo=="tecnico de nivel superior en enfermeria"){$A_nombre_titulo_label='Tï¿½cnico de Nivel Superior en Enfermerï¿½a';}
 								else{ $A_nombre_titulo_label=$A_nombre_titulo;}
 								
 								
@@ -208,9 +208,7 @@ if(!DEBUG)
 				 </table>';
 			break;
 	}
-	mysql_free_result($sql_main_1);
-
-	mysql_close($conexion);
+	$sql_main_1->free();
 	$conexion_mysqli->close();
 	//echo $hoja;
 //--------------------------------------//

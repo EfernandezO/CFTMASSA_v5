@@ -96,11 +96,11 @@ function MM_swapImage() { //v3.0
 	  <table width="100%" border="0" cellpadding="0" cellspacing="0">
         <tbody><tr>
           <td bgcolor="#e8e8e6">
-		  <h1>Nuestra Institución</h1> 
+		  <h1>Nuestra Instituciï¿½n</h1> 
               <ul>
                 <li><a href="../nuestra_institucion/quienes_somos.php">Quienes Somos</a></li>
                 <li><a href="../nuestra_institucion/direccion_docencia.php">Direcci&oacute;n y Docencia</a></li>
-                <li><a href="../nuestra_institucion/mision_vision.php">Misión - Visión</a></li>
+                <li><a href="../nuestra_institucion/mision_vision.php">Misiï¿½n - Visiï¿½n</a></li>
               </ul>
 		  <h2>Sedes</h2>
           <ul>

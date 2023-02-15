@@ -4,7 +4,7 @@
 	define("DEBUG", false);
 	$O=new OKALIS();
 	$O->DEBUG=DEBUG;
-	$O->setDisplayErrors(true);
+	$O->setDisplayErrors(false);
 	$O->ruta_conexion="../../../funciones/";
 	$O->clave_del_archivo=md5("registra_egresos");
 	$O->PERMITIR_ACCESO_USUARIO();
@@ -212,6 +212,11 @@ if($_POST)
 				$forma_pago=mysqli_real_escape_string($conexion_mysqli, $_POST["forma_pago"]);
 				$responsable_gasto=mysqli_real_escape_string($conexion_mysqli, $_POST["responsable_gasto"]);
 				
+				$dia=mysqli_real_escape_string($conexion_mysqli, $_POST["dia"]);
+				$mes=mysqli_real_escape_string($conexion_mysqli, $_POST["mes"]);
+				$year=mysqli_real_escape_string($conexion_mysqli, $_POST["year"]);
+				$cheque_numero=mysqli_real_escape_string($conexion_mysqli, $_POST["cheque_numero"]);
+				$cheque_banco=mysqli_real_escape_string($conexion_mysqli, $_POST["cheque_banco"]);
 				
 				$campos="tipo_receptor, ";
 				

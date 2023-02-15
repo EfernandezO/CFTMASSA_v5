@@ -3,6 +3,7 @@
 	require("../../OKALIS/class_OKALIS_v1.php");
 	define("DEBUG", false);
 	$O=new OKALIS();
+	//$O->setDisplayErrors(true);
 	$O->DEBUG=DEBUG;
 	$O->ruta_conexion="../../../funciones/";
 	$O->clave_del_archivo=md5("Gestionar_aplicacion_de_interes_Y_Gasto_cobranza_alumno_v1");

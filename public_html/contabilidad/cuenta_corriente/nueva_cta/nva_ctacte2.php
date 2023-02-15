@@ -13,9 +13,9 @@ if($_POST)
 	
 	require("../../../../funciones/conexion_v2.php");
 	
-	$banco=ucwords(strtolower(mysqli_real_escape_string($conexion_mysqli, $_POST["banco"])));
-	$cta_cte=mysqli_real_escape_string($conexion_mysqli, $_POST["cta_cte"]);
-	$titular=ucwords(strtolower(mysqli_real_escape_string($conexion_mysqli, $_POST["titular"])));
+	$banco=ucwords(strtolower(mysql_real_escape_string($_POST["banco"])));
+	$cta_cte=mysql_real_escape_string($_POST["cta_cte"]);
+	$titular=ucwords(strtolower(mysql_real_escape_string($_POST["titular"])));
 	
 	$campos="titular, banco, num_cuenta";
 	$valores="'$titular', '$banco', '$cta_cte'";
@@ -23,10 +23,10 @@ if($_POST)
 	$cons_B="SELECT COUNT(id) FROM cuenta_corriente WHERE num_cuenta='$cta_cte' AND banco='$banco'";
 	if(DEBUG){echo"$cons_B<br>";}
 	
-	$sql=$conexion_mysqli->query($cons_B)or die($conexion_mysqli->error);
-	$D=$sql->fetch_row();
+	$sql=mysql_query($cons_B)or die(mysql_error());
+	$D=mysql_fetch_row($sql);
 	$coincidencias=$D[0];
-	$sql->free();
+	mysql_free_result($sql);
 	if(DEBUG){echo"---- $coincidencias<br>";}
 	
 	if(!$coincidencias>0)
@@ -35,7 +35,7 @@ if($_POST)
 		if(DEBUG){echo"--> $cons<br>";}
 		else
 		{
-			if($conexion_mysqli->query($cons))
+			if(mysql_query($cons))
 			{
 					////////////REGISTRA EVENTO////////////////////
 					include("../../../../funciones/VX.php");
@@ -50,7 +50,7 @@ if($_POST)
 	}
 	else
 	{$error=2;}
-	$conexion_mysqli->close();
+	mysql_close($conexion);
 	
 	$url="../listador_cuentas.php?error=$error";
 	if(DEBUG){ echo"URL: $url<br>";}

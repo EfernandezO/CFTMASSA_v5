@@ -47,8 +47,7 @@ if($_GET)
 		}
 		else
 		{ $error="A2";}
-	}
-	@mysql_close($conexion);  
+	} 
 	$conexion_mysqli->close();
 	
 	$url="../asignacion_asignaturas_docente_1.php?fid=".base64_encode($id_funcionario)."&error=$error";

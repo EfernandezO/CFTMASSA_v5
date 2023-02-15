@@ -276,8 +276,8 @@ function radiovalue(radios) {
 }
 </style>
 </head>
-
-<!--<body onload="xajax_BUSCA_VALORES_CARRERA(document.getElementById('carrera').value, document.getElementById('year_estudio').value, document.getElementById('lugar_contrato').value, document.getElementById('semestre').value, document.getElementById('jornada').value, document.getElementById('ingresoCarrera').value)">-->
+   <!-- para volver a como estaba comentar busca valores carrera -->
+<!--body onload="xajax_BUSCA_VALORES_CARRERA(document.getElementById('carrera').value, document.getElementById('year_estudio').value, document.getElementById('lugar_contrato').value, document.getElementById('semestre').value, document.getElementById('jornada').value, document.getElementById('ingresoCarrera').value)"-->
 
 <body onload="xajax_CARGA_CARRERAS(document.getElementById('year_estudio').value, document.getElementById('jornada').value, document.getElementById('ingresoCarrera').value, document.getElementById('lugar_contrato').value)">
 

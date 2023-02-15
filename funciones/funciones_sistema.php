@@ -86,15 +86,17 @@ function DIAS_MOROSIDAD($id_alumno, $id_cuota=0, $idContrato=0)
 //comprueba si es posible asignar una beca a un alumno
 function VERIFICAR_BECA($id_alumno, $id_carrera, $semestre, $year, $id_beca)
 {
+	require("conexion_v2.php");
 	if(DEBUG){ echo"<strong>FUNCION:</strong> VERIFICAR_BECA<br>";}
 	$cons_1="SELECT COUNT(id) FROM beca_asignaciones WHERE id_alumno='$id_alumno' AND id_carrera='$id_carrera' AND semestre='$semestre' AND year='$year' AND id_beca='$id_beca'";
-	$sql_1=mysql_query($cons_1)or die("VERIFICAR_BECA ".mysql_error());
-		$DB=mysql_fetch_row($sql_1);
+	$sql_1=$conexion_mysqli->query($cons_1)or die("VERIFICAR_BECA ");
+		$DB=$sql_1->fetch_row();
 			$coincidencias_beca=$DB[0];
 			if(empty($coincidencias_beca)){ $coincidencias_beca=0;}
-		mysql_free_result($sql_1);	
+		$sql_1->free();	
 	//////////////////////	
 	if(DEBUG){ echo"---->$cons_1<br>Coincidencias:$coincidencias_beca<br>";}
+	$conexion_mysqli->close();
 	if($coincidencias_beca>0)	
 	{ $respuesta_beca=false;}
 	else
@@ -104,18 +106,22 @@ function VERIFICAR_BECA($id_alumno, $id_carrera, $semestre, $year, $id_beca)
 //////////////////////////////////////////////////////////////////
 function ELIMINA_CUOTAS_OLD($id_contrato, $id_alumno)
 {
+	require("conexion_v2.php");
 	$cons_del="DELETE FROM letras WHERE id_contrato='$id_contrato' AND idalumn='$id_alumno'";
 	if(DEBUG){ echo"FUNCION -> $cons_del<br>";}
 	else
-	{ mysql_query($cons_del)or die("borra_cuota ".mysql_error());}
+	{$conexion_mysqli->query($cons_del)or die("ERROR borra_cuota ");}
+	$conexion_mysqli->close();
 }
 ///////////////////////////////////////////
 function CAMBIA_SITUACION_FINANCIERA_ALUMNO($id_alumno, $nueva_condicion="V")
 {
+	require("conexion_v2.php");
 	$cons_UP="UPDATE alumno SET situacion_financiera='$nueva_condicion' WHERE id='$id_alumno' LIMIT 1";
 	if(DEBUG){ echo"---->$cons_UP<br>";}
 	else
-	{	mysql_query($cons_UP);}
+	{	$conexion_mysqli->query($cons_UP);}
+	$conexion_mysqli->close();
 }
 ///////////////////////////////////////////////////////////////////
 function GENERA_BOLETA($id_receptor, $valor, $sede, $glosa, $fecha_boleta="", $tipo_receptor="alumno")
@@ -180,6 +186,8 @@ function REGISTRA_CHEQUE($cheque, $chequeXmatricula_arancel=false)
 	if(DEBUG){ echo"<strong>---------------------FUNCION REGISTRA_CHEQUE--------------------</strong><br>";}
 	///
 	
+	if(DEBUG){var_dump($cheque);}
+
 	if(isset($cheque["emisor"])){ $emisor=$cheque["emisor"];}
 	else{ $emisor="alumno";}
 	
@@ -1743,7 +1751,11 @@ function CAMPO_SELECCION($nombre_campo, $tipo, $valor_predeterminado="", $mostra
 								  "21"=>"insumos tens",
 								  "22"=>"fondo de cesantia",
 								  "23"=>"publicidad",
-								  "24"=>"arancel de verificacion institucional");
+								  "24"=>"arancel de verificacion institucional",
+								  "25"=>"fondo salud",
+								  "26"=>"pago impuestos",
+								  "27"=>"gastos IP",
+								  "28"=>"gastos Ed. Continua");
 								  
 			}
 			else
@@ -1771,7 +1783,11 @@ function CAMPO_SELECCION($nombre_campo, $tipo, $valor_predeterminado="", $mostra
 								  "21"=>"insumos TENS",
 								  "22"=>"fondo de cesantia",
 								  "23"=>"publicidad",
-								  "24"=>"arancel de verificacion institucional");
+								  "24"=>"arancel de verificacion institucional",
+								  "25"=>"fondo salud",
+								  "26"=>"pago impuestos",
+								  "27"=> "gastos IP",
+								  "28"=>"gastos Ed. Continua");
 			}
 			
 			sort($array_opciones);
@@ -1805,7 +1821,8 @@ function CAMPO_SELECCION($nombre_campo, $tipo, $valor_predeterminado="", $mostra
 								  "13"=>"Ripley",
 								  "14"=>"Consorcio",
 								  "15"=>"Penta",
-								  "16"=>"Paris");
+								  "16"=>"Paris",
+								  "17"=>"Flow");
 			}
 			else
 			{
@@ -1824,7 +1841,8 @@ function CAMPO_SELECCION($nombre_campo, $tipo, $valor_predeterminado="", $mostra
 									  "13"=>"Ripley",
 									  "14"=>"Consorcio",
 									  "15"=>"Penta",
-									  "16"=>"Paris");
+									  "16"=>"Paris",
+									  "17"=>"Flow");
 			}
 			sort($array_opciones);					  
 			foreach($array_opciones as $n => $valor)
@@ -1904,7 +1922,7 @@ function NOTAS_PARCIALES_V3($id_alumno, $id_carrera, $cod_asignatura, $jornada, 
 	
 	//datos del alumno
 	$cons_A="SELECT grupo, sede FROM alumno WHERE id='$id_alumno' LIMIT 1";
-	$sqli_A=$conexion_mysqli->query($cons_A)or die($conexion_mysqli->error());
+	$sqli_A=$conexion_mysqli->query($cons_A)or die($conexion_mysqli->error);
 		$A=$sqli_A->fetch_assoc();
 		$A_sede=$A["sede"];
 		$A_grupo=$A["grupo"];

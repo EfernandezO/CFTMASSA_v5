@@ -228,7 +228,7 @@ if($_GET)
 			
 		}
 		
-		$aux_valor_bruto=($aux_total/0.9);
+		$aux_valor_bruto=($aux_total/0.885);
 		$aux_valor_impuesto=($aux_valor_bruto-$aux_total);
 		
 		
@@ -241,7 +241,7 @@ if($_GET)
 			$pdf->Cell(170,5,"Honorarios Brutos (datos para confeccion de Boleta de Honorarios)",$borde,0,"L");
 			$pdf->Cell(20,5,"$ ".number_format($aux_valor_bruto,0,",","."),$borde,1,"R");
 			//impuesto
-			$pdf->Cell(170,5,"10% Impuesto",$borde,0,"L");
+			$pdf->Cell(170,5,"11,5% Impuesto",$borde,0,"L");
 			$pdf->Cell(20,5,"$ ".number_format($aux_valor_impuesto,0,",","."),$borde,1,"R");
 			//liquido
 			$pdf->Cell(170,5,"Total a Pagar",$borde,0,"L");

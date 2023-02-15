@@ -110,7 +110,6 @@ function BUSCA_PAGOS($year)
 		$div='div_datos';
 		$objResponse = new xajaxResponse();
 		$objResponse->Assign($div,"innerHTML","<br><br>".$html);
-		@mysql_close($conexion);
 		$conexion_mysqli->close();
 	return $objResponse;
 }

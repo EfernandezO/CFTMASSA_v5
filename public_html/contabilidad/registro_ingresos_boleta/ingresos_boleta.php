@@ -174,7 +174,7 @@ function Confirmar()
 }
 </script>
 <?php
-$array_bancos=array("Estado","Chile","Santander","Internacional","Scotiabank","Credito e Inversiones","Corpbanca","Bice","HSBC Bank","Itau","Security","Falabella","Ripley","Consorcio","Penta","Paris","BBVA");
+$array_bancos=array("Estado","Chile","Santander","Internacional","Scotiabank","Credito e Inversiones","Corpbanca","Bice","HSBC Bank","Itau","Security","Falabella","Ripley","Consorcio","Penta","Paris","BBVA","Flow");
  sort($array_bancos);
 ?>
 </head>
@@ -277,7 +277,7 @@ $array_bancos=array("Estado","Chile","Santander","Internacional","Scotiabank","C
       <td width="61" ><input name="forma_pago" type="radio" id="radio" value="efectivo" checked="checked" />
         Efectivo</td>
       <td width="166" ><input type="radio" name="forma_pago" id="radio2" value="cheque" />
-        Cheque</td>
+        Deposito</td>
       <td width="158" >&nbsp;</td>
       <td width="144" >&nbsp;</td>
     </tr>

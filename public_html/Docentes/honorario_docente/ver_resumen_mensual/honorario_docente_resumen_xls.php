@@ -3,6 +3,7 @@
 	require("../../../OKALIS/class_OKALIS_v1.php");
 	define("DEBUG", false);
 	$O=new OKALIS();
+	//$O->setDisplayErrors(true);
 	$O->DEBUG=DEBUG;
 	$O->ruta_conexion="../../../../funciones/";
 	$O->clave_del_archivo=md5("revision_mensual_honorario_Docente");
@@ -138,7 +139,6 @@ if($_GET)
 	$sqli_H->free();	
 
 
-	mysql_close($conexion);
 	$conexion_mysqli->close();
 	
 	echo $html_tabla;

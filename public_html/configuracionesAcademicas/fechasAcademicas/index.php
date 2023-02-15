@@ -188,6 +188,7 @@ if($continuar)
 </tbody>
 </table>
 </div>
+
 <div id="apDiv2">
 <form action="grabaFechasAcademicas.php" method="post" id="frm">
   <table width="100%" border="1" align="left">

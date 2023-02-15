@@ -440,7 +440,7 @@ $num_solicitudes_no_autorizadas=0;
                         </a>
                     </div>
                     
-                     <div class="metro-nav-block nav-block-yellow">
+                    <div class="metro-nav-block nav-block-yellow">
                         <a data-original-title="Toma Ramos" href="tomaRamosAlumno/tomaRamosAlumno.php">
                             <i class="icon-edit-sign"></i>
                             <div class="info">9</div>

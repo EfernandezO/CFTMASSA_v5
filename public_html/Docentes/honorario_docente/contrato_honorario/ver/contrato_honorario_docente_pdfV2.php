@@ -47,6 +47,15 @@
 	</thead>
 	<tbody>';
 
+
+//01/02/2023
+//datos firmante
+//-------------------------------------------------//
+$nombreRector="Juan Carlos Figueroa Urrutia";
+$rutRector="6015058-3";
+//---------------------------------------------------//
+
+
 if($_POST)
 {
 	$semestre=mysqli_real_escape_string($conexion_mysqli, $_POST["semestre"]);
@@ -258,7 +267,7 @@ if($continuar)
 			if($verContratoDocente){
 				if(DEBUG){echo"Ver contrato Docente: OK<br>";}
 				//variable x parrafo parrafo
-			$parrafo_1=utf8_decode("En ".$lugar_contrato." a ".$fechaAcademicaInicio.", entre el Centro de Fomación Técnica Massachusetts Ltda. RUT.:89.921.100-6, Institución de educación superior, domiciliada para estos efectos en calle $direccion_cft, ciudad de $lugar_contrato, representada por su RECTOR, don Juan Pablo Jaña Perez, cedula nacional de identidad número 11.889.629-7, del mismo domicilio anterior y don(ña) $nombre_funcionario $apellido_funcionario, de nacionalidad CHILENA, profesión $tituloFuncionario, cedula nacional de identidad número ".$rut_funcionario.", domiciliado en calle $direccionFuncionario, comuna de $ciudadFuncionario, en adelante \"el profesional docente\", se ha convenido el siguiente Contrato de Prestación de Servicios Profesionales.");
+			$parrafo_1=utf8_decode("En ".$lugar_contrato." a ".$fechaAcademicaInicio.", entre el Centro de Fomación Técnica Massachusetts Ltda. RUT.:89.921.100-6, Institución de educación superior, domiciliada para estos efectos en calle $direccion_cft, ciudad de $lugar_contrato, representada por su RECTOR, don ".$nombreRector.", cedula nacional de identidad número ".$rutRector.", del mismo domicilio anterior y don(ña) $nombre_funcionario $apellido_funcionario, de nacionalidad CHILENA, profesión $tituloFuncionario, cedula nacional de identidad número ".$rut_funcionario.", domiciliado en calle $direccionFuncionario, comuna de $ciudadFuncionario, en adelante \"el profesional docente\", se ha convenido el siguiente Contrato de Prestación de Servicios Profesionales a Honorarios.");
 			//*************
 			$parrafo_2=utf8_decode("Centro de Formacion Técnica Massachusetts es una institución de educacion superior, cuya misión es conocida por el profesional docente, la cual se obliga a respetar y se compromete a cumplir. En particular, al profesional docente se compromete a respetar la organización interna del CFT y abstenerse de realizar cualquier acción que menoscabe o ponga en peligro la imagen institucional.");
 			
@@ -275,13 +284,13 @@ if($continuar)
 			
 			
 			
-			$parrafo_3=utf8_decode("Funciones: Para los efectos estipulados en la cláusula anterior CFT Massachusetts y el profesional docente vienen a celebrar el siguiente contrato de prestación de servicios profesionales, a fin de que este se desarrolle en la Sede $sede la(s) asignaturas, evaluaciones, examinaciones u otros servicios comprendidos en el semestre $semestre del año $year.");
+			$parrafo_3=utf8_decode("Funciones: Para los efectos estipulados en la cláusula anterior CFT Massachusetts y el profesional docente vienen a celebrar el siguiente contrato de prestación de servicios profesionales a honorarios, a fin de que este se desarrolle en la Sede $sede, estas actividades están relacionadas con la(s) asignaturas, evaluaciones, examinaciones u otros servicios comprendidos, como así sus registros durante el semestre $semestre del año $year, o en forma remota de acuerdo a condiciones especiales.");
 			
-			$parrafo_4a=utf8_decode("Honorario y forma de pago: CFT Massachusetts pagará al Profesional Docente por los servicios profesionales señalados en el anexo 'Asignacion' y a modo de honorarios la suma que a él se indica.");
+			$parrafo_4a=utf8_decode("Honorario y forma de pago: CFT Massachusetts pagará al Profesional Docente por los servicios profesionales señalados en el anexo 'Asignacion' y a modo de honorarios la suma que a él se indica (valor bruto), o en su defecto las que correspondan o las efectivamente realizadas.");
 			
 			$parrafo_4b=utf8_decode("El profesional docente desarrollará sus actividades en conformidad con (el) plan(es) y programa(s) de Estudio de las asignaturas antes mencionada(s) y conforme a la orientacion del Modelo Educativo y sus mecanismos el (los) que se entiende(n) forman parte del presente instrumento.");
 			
-			$parrafo_4c=utf8_decode("Los honorarios del profesional docente se pagarán por hora acádemica efectivamente realizada e informada por la Dirección Acádemica , previa presentacion de la boleta de honorarios respectiva más las retenciones legales y tributarias correspondientes.Los honorarios se pagaran dentro de los 30 primeros dias del mes siguiente del termino del semestre.");
+			$parrafo_4c=utf8_decode("Los honorarios del profesional docente se pagarán por hora acádemica efectivamente realizada e informada por la Dirección Acádemica, previa presentación de la boleta de honorarios respectiva que contempla las retenciones legales y tributarias correspondientes. Los honorarios se pagarán dentro de los 30 dias posteriores del mes siguiente del término del semestre, previo a la recepción y autorización por parte de la Dirección Académica de la boleta de honorarios en moneda nacional de cuyo total se harán las retenciones pertinentes.");
 			
 			$parrafo_5=utf8_decode("Modalidades de la prestación del servicio: las partes establecen de antemano que dada la naturaleza de los servicios contratados sobre la base de horas académicas, pudiendo aumentarse o disminuirse conforme a las necesidades del CFT Massachusetts.");
 			
@@ -403,14 +412,15 @@ if($continuar)
 			$pdf->ln();
 			
 			
-			$pdf->setY(250);
+			
+			$pdf->setY(280);
 			$pdf->Ln(10);
 			$pdf->Cell(98,4,"_________________________",$borde,0,'C');	
 			$pdf->Cell(98,4,"_________________________",$borde,1,'C');	
 			
 			$pdf->SetFont('Arial','',$letra_pie);
 			$pdf->Cell(98,3,"Fima Docente",$borde,0,'C');	
-			$pdf->Cell(98,3,utf8_decode("Juan Pablo Jaña Perez"),$borde,1,'C');
+			$pdf->Cell(98,3,utf8_decode($nombreRector),$borde,1,'C');
 				
 			$pdf->Cell(98,3,"Rut.:".$rut_funcionario,$borde,0,'C');	
 			$pdf->Cell(98,3,"RECTOR",$borde,1,'C');	
@@ -567,7 +577,7 @@ if($continuar)
 				
 				$pdf->SetFont('Arial','',$letra_pie);
 				$pdf->Cell(98,3,"Fima Docente",$borde,0,'C');	
-				$pdf->Cell(98,3,utf8_decode("Juan Pablo Jaña Perez"),$borde,1,'C');
+				$pdf->Cell(98,3,utf8_decode($nombreRector),$borde,1,'C');
 					
 				$pdf->Cell(98,3,"Rut.:".$rut_funcionario,$borde,0,'C');	
 				$pdf->Cell(98,3,"RECTOR",$borde,1,'C');	
@@ -616,7 +626,7 @@ if($continuar)
 					//$pdf->SetX($margen);
 					$pdf->SetFont('Arial','B',$letra_1);
 					
-					$parrafo_J1="\t\t\t\t\t\t\t\tEn ".$lugar_contrato." a ".$fechaAcademicaInicio.", entre el Centro de ".utf8_decode("Fomación")." ".utf8_decode("Técnica")." Massachusetts Ltda. RUT.:89.921.100-6, Representada para estos efectos por el ".utf8_decode("Señor")." Juan Carlos Figueroa U., RUT: 6.015.058-3, ambos con domicilio en la ciudad de ".utf8_decode($lugar_contrato).", ".utf8_decode($direccion_cft).", por una parte se ha convenido el siguiente Contrato de ".utf8_decode("Prestación")." de Servicios 'Jefe de Carrera' a Honorarios.";
+					$parrafo_J1="\t\t\t\t\t\t\t\tEn ".$lugar_contrato." a ".$fechaAcademicaInicio.", entre el Centro de ".utf8_decode("Fomación")." ".utf8_decode("Técnica")." Massachusetts Ltda. RUT.:89.921.100-6, Representada para estos efectos por el ".utf8_decode("Señor")." ".$nombreRector."., RUT: 6.015.058-3, ambos con domicilio en la ciudad de ".utf8_decode($lugar_contrato).", ".utf8_decode($direccion_cft).", por una parte se ha convenido el siguiente Contrato de ".utf8_decode("Prestación")." de Servicios 'Jefe de Carrera' a Honorarios.";
 			//*************
 					$parrafo_J2="El C.F.T Massachusetts Ltda, en virtud de los antecedentes profesionales, contrata los servicios de ".utf8_decode("señor (a)")." ".utf8_decode($nombre_funcionario)." ".utf8_decode($apellido_funcionario).", RUT:".$rut_funcionario.", para efectuar en la carrera de ".utf8_decode(NOMBRE_CARRERA($R_id_carrera_JF)).", la labor de Jefe(a) de Carrera en este establecimiento de ".utf8_decode("Educación").".";
 					
@@ -688,7 +698,7 @@ if($continuar)
 					
 					$pdf->SetFont('Arial','',$letra_pie);
 					$pdf->Cell(98,3,utf8_decode($nombre_funcionario." ".$apellido_funcionario),$borde,0,'C');	
-					$pdf->Cell(98,3,"Juan Carlos Figueroa U",$borde,1,'C');
+					$pdf->Cell(98,3,$nombreRector,$borde,1,'C');
 						
 					$pdf->Cell(98,3,"Rut.:".$rut_funcionario,$borde,0,'C');	
 					$pdf->Cell(98,3,"Representante Legal",$borde,1,'C');	

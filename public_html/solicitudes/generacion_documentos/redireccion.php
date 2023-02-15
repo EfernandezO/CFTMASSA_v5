@@ -80,6 +80,10 @@
 								if(DEBUG){ echo"Categoria: Plan Curricular<br>";}
 								$url="certificado_plan_curricular/plan_curricular_v1_1.php?id_solicitud=$id_solicitud";
 								break;
+							case"hola":
+								if(DEBUG){ echo"Categoria:Hola<br>";}
+								$url="hola/hola_v1_1.php?id_solicitud=$id_solicitud";
+								break;	
 							default:
 								if(DEBUG){ echo"Categoria: Default<br>";}
 								$url="../../buscador_alumno_BETA/HALL/index.php";	

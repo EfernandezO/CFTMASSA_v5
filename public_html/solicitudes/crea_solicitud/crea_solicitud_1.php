@@ -149,8 +149,6 @@ else{ $semestre_actual=1;}
 <div id="apDiv3"><a href="#"  class="button_R hint--top  hint--error" data-hint="Para que un Certificado pueda ser Emitido debe ser previamente pagado" onclick="xajax_VERIFICA_SOLICITUD(xajax.getFormValues('frm')); return false;">Crear Solicitud</a></div>
 <div id="apDiv4"><strong>Importante</strong><br /><ul>
   <li>Si desea un Certificado, debe realizar una solicitud, esta debe ser autorizada para emitir el Certificado</li>
-  <li>Para autorizar una solicitud esta debe ser pagada, lo cual puede realizar directamente en nuestras oficinas o depositando en nuestra cuenta corriente del <strong>Banco Santander 65-41007-9</strong>.</li>
-  <li>Si ud. realiza el dep&oacute;sito debe adjuntar el comprobante de pago para autorizar la solicitud.</li>
   <li>Para cualquier consulta escribanos a secretaria@cftmass.cl</li>
 </ul>
 </div>
