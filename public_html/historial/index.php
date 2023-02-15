@@ -1,5 +1,6 @@
 <?php
 //--------------CLASS_okalis------------------//
+//14/02/2023 update
 	require("../OKALIS/class_OKALIS_v1.php");
 	define("DEBUG", false);
 	$O=new OKALIS();
